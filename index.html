@@ -1,0 +1,1574 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#153e35"><title>Pickadeli · Recepción asistida</title><style>
+:root{--ink:#193e34;--muted:#60756b;--green:#235d48;--dark:#153e35;--lime:#dceda1;--bg:#f5f7f2;--line:#dce5db;--amber:#8b5815;--amberbg:#fff5e5;--red:#994637;--blue:#365b83;--bluebg:#eff5fb;--white:#fff}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 'Segoe UI',Arial,sans-serif}button,input,select,textarea{font:inherit}button{cursor:pointer}button:disabled{opacity:.6;cursor:wait}button,a,input,select,summary{touch-action:manipulation}button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible,textarea:focus-visible{outline:3px solid #b47b1f;outline-offset:3px}[hidden]{display:none!important}h1,h2,h3,p{margin-top:0}h1{font-size:clamp(27px,2.7vw,40px);line-height:1.17;letter-spacing:-1.2px;font-weight:650;margin-bottom:12px}h2{font-size:20px;line-height:1.3;letter-spacing:-.4px;margin-bottom:9px}h3{font-size:17px;line-height:1.35;margin-bottom:9px}p{margin-bottom:13px}small{font-size:12px}.skip{position:fixed;left:16px;top:-100px;padding:12px;background:white;z-index:100}.skip:focus{top:12px}.sidebar{position:fixed;inset:0 auto 0 0;width:224px;background:var(--dark);color:#eaf3e7;display:flex;flex-direction:column;padding:30px 16px 22px}.brand{display:flex;align-items:center;gap:11px;color:white;text-decoration:none;font-size:27px;font-weight:650;letter-spacing:-1px;margin-left:6px}.logo{position:relative;display:grid;place-items:center;width:40px;height:43px;border-radius:12px;background:var(--lime);color:var(--dark);font-size:36px;padding-bottom:5px}.logo>span{position:absolute;font-size:23px;right:5px;bottom:4px}.brand small{display:block;font-size:8px;font-weight:500;letter-spacing:1.5px;color:#bed0bf;margin-top:-2px}.nav-label{font-size:9px;letter-spacing:1.5px;color:#afc7b5;margin:43px 10px 15px}.nav{display:flex;align-items:center;gap:10px;text-align:left;border:0;border-radius:9px;background:none;color:#d0e0d4;width:100%;padding:13px 11px;font-size:12px;font-weight:600;min-height:47px;margin:4px 0}.nav>span{font-size:21px;line-height:1;width:21px;text-align:center}.nav b{font-size:10px;padding:1px 6px;margin-left:auto;border-radius:5px;background:#ffffff25}.nav.active{background:var(--lime);color:var(--dark)}.sidebar-foot{margin-top:auto;display:flex;align-items:center;gap:11px;border-top:1px solid #ffffff22;padding:22px 8px 0}.avatar{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:#406456}.sidebar-foot b{font-size:12px}.sidebar-foot small{display:block;color:#adc8b4;font-size:11px}.shell{margin-left:224px}.topbar{height:67px;padding:0 34px;display:flex;align-items:center;justify-content:space-between;background:#fcfdf9;border-bottom:1px solid var(--line);font-size:12px;color:var(--muted)}.demo-tag{font-size:10px;letter-spacing:1px;font-weight:650;display:flex;align-items:center;gap:7px}.demo-tag i{height:6px;width:6px;background:#819564;border-radius:50%}main{max-width:1540px;padding:31px 34px 22px;margin:auto}.page-heading{display:flex;align-items:center;justify-content:space-between;gap:22px;margin-bottom:24px}.page-heading .button{white-space:nowrap}.eyebrow{color:var(--muted);font-size:10px;font-weight:700;letter-spacing:1.5px;margin:0 0 9px}.lede{font-size:14px;color:var(--muted);margin:0;max-width:790px}.button{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:44px;padding:11px 16px;border-radius:8px;border:1px solid transparent;font-size:13px;font-weight:650}.button:hover:not(:disabled){filter:brightness(.96)}.primary{background:var(--green);color:white}.secondary{background:white;border-color:#bbcebf;color:var(--green)}.text-button{background:none;border:0;padding:8px 0;color:var(--green);text-decoration:underline;font-size:12px}.context-bar{display:flex;align-items:center;flex-wrap:wrap;gap:10px 24px;font-size:11px;background:#eaf0e1;border:1px solid #dbe4ce;border-radius:10px;padding:13px 17px;margin-bottom:24px;color:#5e7252}.context-bar>span{display:flex;align-items:center;gap:5px}.context-bar b{font-weight:600}.context-note{font-size:10px;flex-basis:100%}.dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:#6c8e4c;margin-right:3px}.workspace-grid{display:grid;grid-template-columns:minmax(300px,.9fr) minmax(380px,1.3fr);gap:22px;align-items:stretch}.card{background:var(--white);border:1px solid var(--line);border-radius:17px;padding:25px;box-shadow:0 3px 4px #223b2302}.section-title{display:flex;align-items:flex-start;gap:12px;margin-bottom:24px}.section-title h2{margin-bottom:5px;font-size:19px}.section-title p{font-size:12px;color:var(--muted);margin:0}.section-title>.badge{margin-left:auto;flex-shrink:0}.step{display:grid;place-items:center;width:29px;height:29px;flex-shrink:0;border:1px solid #cfddc4;background:#f1f6e9;border-radius:8px;font-size:11px;font-weight:700;color:#668443;margin-top:1px}.input-card label{display:block;font-size:13px;font-weight:650;margin-bottom:7px}input,select{width:100%;border:1px solid #b8c9bb;border-radius:8px;background:#fff;color:var(--ink);padding:13px 12px;min-height:47px}input::placeholder{color:#8a998d}.hint{color:var(--muted);font-size:11px;margin:7px 0 17px}.selected-product{background:#f2f5ec;padding:10px 12px;border-radius:8px;margin:12px 0 20px;font-size:11px;color:var(--muted);border-left:3px solid #a1bc7b}.selected-product b{color:var(--ink)}.quantity-label{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:22px}.quantity-label span{font-size:11px;color:var(--muted);text-align:right;max-width:135px}#quantity{font-size:42px;line-height:1;letter-spacing:-1px;height:80px;background:#fdfefb;font-weight:550;padding-left:16px}.submit{width:100%;margin-top:8px;min-height:51px;font-size:13px}.submit>span{font-size:20px}.automatic-note{display:flex;align-items:flex-start;gap:10px;margin-top:21px;padding-top:18px;border-top:1px solid var(--line)}.automatic-note>span{color:#629053;font-size:16px}.automatic-note p{margin:0;color:var(--muted);font-size:12px}.form-error{font-size:12px;padding:12px;background:#fff0e9;border-radius:7px;color:#9b4332}.empty-result{text-align:center;padding:34px 15px 20px;max-width:440px;margin:auto}.empty-icon{width:62px;height:62px;border-radius:18px;background:#edf3e6;color:#64884c;font-size:37px;margin:0 auto 22px;display:grid;place-items:center}.empty-result h3{font-size:22px}.empty-result p{font-size:14px;color:var(--muted);line-height:1.7}.promise{display:flex;gap:16px;justify-content:center;font-size:11px;color:#668054;padding-top:22px}.badge{display:inline-flex;align-items:center;padding:5px 8px;border-radius:6px;font-weight:650;font-size:10px;line-height:1.4}.badge.neutral{background:#eff2eb;color:#65755d}.badge.success{background:#e9f4e4;color:#35623c}.badge.warning{background:#fff1dc;color:var(--amber)}.badge.danger{background:#fbece7;color:var(--red)}.badge.info{background:#edf3fa;color:var(--blue)}.result-box{padding:22px;background:#f0f6e9;border:1px solid #d5e2ca;border-radius:12px}.result-box.warning{background:#fff8eb;border-color:#ebd9b9}.result-box.danger{background:#fcf2ee;border-color:#e9cec5}.result-box.info{background:var(--bluebg);border-color:#cfdeee}.result-box h3{font-size:22px;margin-bottom:10px}.result-box p{font-size:13px;line-height:1.65;margin:0;color:#526954}.result-box .eyebrow{font-size:9px;margin-bottom:15px}.accepted-row{display:flex;align-items:center;gap:17px;margin:4px 0 17px}.accepted-number{font-size:57px;font-weight:650;line-height:1.05;letter-spacing:-2px}.accepted-row b{display:block;font-size:14px}.accepted-row small{color:var(--muted);display:block;font-size:11px;margin-top:4px}.metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:20px 0}.metric{border-right:1px solid var(--line);padding-right:8px}.metric:last-child{border:0}.metric span{font-size:10px;color:var(--muted);display:block;min-height:30px}.metric b{font-size:25px;font-weight:600;display:block;line-height:1.25;overflow-wrap:anywhere}.metric small{font-size:10px;color:var(--muted)}.result-foot{font-size:11px;color:var(--muted);margin:17px 0 0}.owner{display:flex;justify-content:space-between;align-items:flex-start;gap:20px;font-size:12px;padding:12px 0;border-bottom:1px solid var(--line)}.owner>span{color:var(--muted);font-size:11px}.owner b{text-align:right;max-width:65%;font-weight:600}.case-actions{margin-top:17px}.case-actions .button{font-size:12px;width:100%;margin-top:9px}.case-actions .hint{margin-bottom:0}.source-shortcuts{margin-top:19px;display:flex;align-items:center;gap:10px;font-size:11px;color:var(--muted);border-top:1px solid var(--line);padding-top:16px}.source-shortcuts .text-button{font-size:11px}.small-note{font-size:11px;color:var(--muted);line-height:1.65;margin-top:20px}.small-note b{font-weight:600}.scenario-banner{border:1px solid #d1deed;background:#eef4fa;border-radius:10px;padding:16px 19px;margin-bottom:23px;display:flex;justify-content:space-between;gap:25px;align-items:center}.scenario-banner .eyebrow{font-size:9px;display:block;color:#6c8098;margin-bottom:4px}.scenario-banner b{font-size:14px}.scenario-banner p{font-size:12px;color:#627388;margin:4px 0 0}.scenario-banner .text-button{flex-shrink:0}.trace-section{margin-top:23px}.trace-section .section-title{margin-bottom:18px}.legend{display:flex;gap:20px;flex-wrap:wrap;font-size:10px;color:var(--muted);margin-bottom:18px}.real-dot{background:#638c47}.sim-dot{background:#6090bd}.excluded-dot{background:#9eaaa0}.trace-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}.evidence-card{border:1px solid #dce5d5;border-radius:10px;padding:16px;background:#fcfdf9;text-align:left;width:100%;color:var(--ink)}button.evidence-card:hover{background:#f1f6e9}.evidence-card h3{font-size:13px;margin:10px 0 8px;overflow-wrap:anywhere}.evidence-card p{font-size:12px;color:var(--muted);margin-bottom:8px}.evidence-card .file-ref{font-size:10px;overflow-wrap:anywhere;color:#6d7d62}.evidence-card.simulated{border-color:#ceddec;background:#f3f7fc}.evidence-card .open-ref{font-size:11px;display:block;margin-top:12px;color:var(--green);font-weight:650}.excluded,.assumptions{font-size:12px;border-top:1px solid var(--line);margin-top:20px;padding-top:15px}.excluded summary,.assumptions summary{font-weight:600;cursor:pointer}.excluded-item{border-bottom:1px solid var(--line);padding:13px 0;display:flex;align-items:flex-start;justify-content:space-between;gap:20px}.excluded-item p{font-size:11px;color:var(--muted);margin:3px 0}.excluded-item .text-button{font-size:11px;flex-shrink:0}.assumptions ul{padding-left:18px;color:var(--muted)}.assumptions li{margin-bottom:9px}.filterbar{display:flex;align-items:end;justify-content:space-between;gap:20px;margin-bottom:20px}.filterbar label{font-size:12px;display:grid;gap:6px}.filterbar .hint{margin:0}.history-card{margin-bottom:15px}.history-head{display:flex;justify-content:space-between;gap:16px}.history-head p{font-size:11px;color:var(--muted);margin:0 0 6px}.history-head h2{font-size:18px}.history-card>.hint{margin-bottom:0}.history-card .history-numbers{display:flex;gap:23px;flex-wrap:wrap;font-size:12px;margin:13px 0 19px}.history-numbers b{font-size:18px;margin-left:4px}.history-card details{font-size:12px;margin-top:18px;padding-top:14px;border-top:1px solid var(--line)}.history-card summary{cursor:pointer}.history-card ol{padding-left:20px;color:var(--muted);font-size:12px}.history-card li{margin:10px 0}.history-links{display:flex;flex-wrap:wrap;gap:14px;margin-top:12px}.history-links .text-button{font-size:11px}.reset-box{font-size:12px;color:var(--muted);margin-top:30px}.reset-box summary{cursor:pointer}.reset-box p{margin-top:12px}.empty-history{text-align:center;padding:50px 25px;border:1px dashed #c6d4bc;border-radius:15px;background:white}.empty-history p{color:var(--muted);font-size:13px}.case-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}.case-card{display:flex;flex-direction:column;padding:23px}.case-card h2{font-size:18px;margin-top:19px}.case-card p{font-size:13px;color:var(--muted)}.case-card .button{margin-top:auto;width:100%}.case-count{font-size:31px;font-weight:600;display:block;margin:14px 0 20px}.case-count small{font-size:11px;font-weight:400;display:block;color:var(--muted)}.info-banner{padding:18px 21px;background:#ebf1e3;border:1px solid #dae3d0;color:#5b7051;border-radius:11px;font-size:13px;line-height:1.65;margin-bottom:23px}.source-summary{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:23px}.source-summary>div{background:white;border:1px solid var(--line);border-radius:13px;padding:22px}.source-summary b{display:block;font-size:35px;line-height:1.3;font-weight:600}.source-summary span{font-size:12px;color:var(--muted)}.files-list{display:grid;gap:15px}.file-card{padding:23px}.file-card h2{font-size:16px;overflow-wrap:anywhere;margin:12px 0 8px}.file-card p{font-size:13px;color:var(--muted);margin-bottom:7px}.file-card .period{font-size:11px;color:#4b6753;font-weight:600}.file-card .file-refs{margin-top:15px;border-top:1px solid var(--line);padding-top:9px;display:flex;flex-wrap:wrap;gap:7px 20px}.file-refs button{font-size:11px}.guide-hero{background:var(--dark);color:white;padding:35px 38px;border-radius:17px;display:grid;grid-template-columns:1fr 1fr;gap:35px;align-items:center}.guide-hero h2{font-size:32px;line-height:1.3;letter-spacing:-1px;margin:0;color:#e5edbe}.guide-hero p{font-size:14px;line-height:1.8;margin:0;color:#d0dfd3}.guide-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:23px 0}.guide-grid h3{margin-top:15px}.guide-grid p{font-size:13px;color:var(--muted);margin:0}.prose{margin:23px 0}.prose h2{margin:12px 0 18px}.prose li,.prose p{font-size:14px;color:var(--muted);line-height:1.7}.prose li{margin:12px 0}.prose ol,.prose ul{padding-left:20px}footer{display:flex;justify-content:space-between;gap:17px;border-top:1px solid var(--line);padding-top:19px;margin-top:30px;font-size:10px;color:#77856e}dialog{color:var(--ink);border:1px solid #c8d6c4;border-radius:17px;width:min(720px,calc(100% - 28px));max-height:88vh;padding:27px;box-shadow:0 15px 80px #0c2b3655}dialog::backdrop{background:#102e3b70;backdrop-filter:blur(2px)}.dialog-head{display:flex;justify-content:space-between;align-items:flex-start;gap:20px;margin-bottom:18px}.dialog-head h2{font-size:22px}.icon-button{display:grid;place-items:center;border:1px solid var(--line);border-radius:50%;background:white;min-width:37px;height:37px;font-size:24px;color:var(--ink)}.source-meta{padding:14px;background:#f2f5ec;border-radius:9px;font-size:12px;overflow-wrap:anywhere;line-height:1.9}.source-meta b{display:block}.cell-table{width:100%;border-collapse:collapse;font-size:12px;margin:18px 0;table-layout:fixed}.cell-table th{width:105px;text-align:left;background:#f4f7f0;vertical-align:top;font-weight:600}.cell-table td,.cell-table th{padding:10px 12px;border:1px solid var(--line);overflow-wrap:anywhere;white-space:pre-wrap}.dialog-note{font-size:12px;color:var(--muted);line-height:1.65}#export-content{width:100%;height:340px;border:1px solid #c5d3bf;border-radius:9px;padding:14px;font:11px/1.6 Consolas,monospace;resize:vertical}.dialog-actions{display:flex;gap:12px;justify-content:flex-end;margin-top:15px}.toast{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);padding:13px 22px;background:var(--dark);color:white;border-radius:9px;max-width:calc(100% - 24px);box-shadow:0 5px 22px #0003;z-index:80;font-size:12px}.processing{padding:34px 20px}.processing p{font-size:14px;color:var(--muted)}.progress-line{height:5px;border-radius:9px;background:#e4ecd9;overflow:hidden;margin:25px 0}.progress-line span{display:block;height:100%;background:#73934e;animation:scan 1s ease infinite alternate}@keyframes scan{from{width:15%}to{width:95%}}.mobile-only{display:none}
+@media(min-width:1550px){main{padding:38px 50px}.topbar{padding:0 50px}.workspace-grid{grid-template-columns:1fr 1.4fr}.card{padding:29px}}
+@media(max-width:1200px){.sidebar{width:205px;padding-left:12px;padding-right:12px}.shell{margin-left:205px}.topbar{padding:0 25px}main{padding:27px 25px}.page-heading{align-items:flex-start}.page-heading .button{font-size:11px}.workspace-grid{grid-template-columns:minmax(270px,.95fr) minmax(320px,1.1fr);gap:17px}.card{padding:20px}.section-title{gap:9px}.section-title h2{font-size:17px}.section-title p{font-size:11px}.section-title>.badge{max-width:90px}.case-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.brand{font-size:25px}.nav{font-size:11px}}
+@media(max-width:950px){.sidebar{position:static;width:auto;padding:20px 22px 13px;display:block}.brand{font-size:25px}.brand small{font-size:7px}.logo{width:34px;height:37px;font-size:31px}.nav-label,.sidebar-foot{display:none}.sidebar nav{display:flex;margin-top:17px;gap:6px}.nav{width:auto;font-size:11px;padding:10px 13px;min-height:43px;margin:0}.nav>span{display:none}.shell{margin:0}.topbar{height:51px}.page-heading h1{font-size:33px}.workspace-grid{grid-template-columns:minmax(280px,.9fr) minmax(330px,1.1fr)}.nav b{font-size:9px}.context-note{flex-basis:100%}}
+@media(max-width:700px){.sidebar{padding:18px 17px 12px}.sidebar nav{display:grid;grid-template-columns:repeat(5,1fr);gap:4px}.nav{font-size:9px;justify-content:center;text-align:center;line-height:1.3;padding:8px 3px;min-height:45px}.nav b{display:none}.topbar{padding:0 17px;gap:8px;font-size:9px}.demo-tag{font-size:8px;letter-spacing:.2px;white-space:nowrap}main{padding:25px 17px 18px}.page-heading{flex-direction:column;gap:17px;margin-bottom:20px}.page-heading h1{font-size:32px;letter-spacing:-1px}.page-heading .button{font-size:12px;min-height:40px}.eyebrow{font-size:9px}.lede{font-size:13px}.mobile-only{display:block}.context-bar{padding:12px 14px;gap:8px 15px;margin-bottom:19px;font-size:10px}.context-bar>span:first-child{flex-basis:100%}.context-note{font-size:10px}.workspace-grid{grid-template-columns:1fr;gap:18px}.card{padding:21px;border-radius:14px}.section-title h2{font-size:18px}.section-title p{font-size:12px}.section-title>.badge{font-size:9px}.scenario-banner{flex-direction:column;gap:7px;align-items:flex-start;padding:15px}.scenario-banner .text-button{font-size:11px}.result-box{padding:19px}.result-box h3{font-size:22px}.metric b{font-size:23px}.metric span{font-size:10px}.accepted-number{font-size:52px}.accepted-row b{font-size:13px}.accepted-row{gap:14px}.trace-grid{grid-template-columns:1fr}.legend{gap:9px 17px;font-size:10px}.source-shortcuts{flex-wrap:wrap}.excluded-item{flex-direction:column;gap:3px}.filterbar{flex-direction:column;align-items:flex-start;gap:13px}.history-head h2{font-size:16px}.history-card .history-numbers{gap:10px 17px;font-size:11px}.case-grid{grid-template-columns:1fr}.case-card h2{font-size:20px}.case-count{font-size:32px;margin:8px 0 17px}.source-summary{gap:9px}.source-summary>div{padding:15px 12px}.source-summary b{font-size:28px}.source-summary span{font-size:10px}.info-banner{font-size:12px;padding:15px 17px}.guide-hero{grid-template-columns:1fr;padding:28px 25px;gap:20px}.guide-hero h2{font-size:28px}.guide-hero p{font-size:13px}.guide-grid{grid-template-columns:1fr;gap:14px}.prose li,.prose p{font-size:13px}footer{flex-direction:column;gap:7px;font-size:9px}dialog{padding:20px}.dialog-head h2{font-size:19px}.cell-table th{width:74px}.cell-table td,.cell-table th{padding:9px;font-size:11px}.dialog-actions{flex-direction:column}.toast{bottom:12px;width:calc(100% - 34px);text-align:center}.small-note{font-size:10px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+@media print{.sidebar,.topbar,.input-card,.button,.toast,footer,.reset-box,.filterbar{display:none!important}.shell{margin:0}main{padding:0}.workspace-grid{display:block}.card{break-inside:avoid;box-shadow:none}.trace-grid{grid-template-columns:1fr 1fr}body{background:white}.view[hidden]{display:none!important}}
+
+.prepared-request{font-size:12px;margin-top:15px;padding:13px;background:#f5f7f1;border-radius:9px}.prepared-request summary{cursor:pointer;font-weight:600}.prepared-request p{font-size:11px;line-height:1.8;margin:12px 0 0;overflow-wrap:anywhere}
+
+.skip{top:16px;left:16px;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip-path:inset(50%);white-space:nowrap}.skip:focus{top:16px;width:auto;height:auto;margin:0;padding:12px;clip-path:none;white-space:normal}.result-card{scroll-margin-top:16px}
+
+</style></head>
+<body><a class="skip" href="#main">Saltar al contenido</a>
+<aside class="sidebar"><a class="brand" href="#conteo"><span class="logo">p<span>·</span></span><span>pickadeli<small>RECEPCIÓN ASISTIDA</small></span></a><div class="nav-label">CENTRO DE PRODUCCIÓN</div><nav aria-label="Navegación"><button data-view="conteo" class="nav active"><span aria-hidden="true">▦</span> Registrar conteo</button><button data-view="historial" class="nav"><span aria-hidden="true">≡</span> Mis ensayos <b id="record-count">0</b></button><button data-view="casos" class="nav"><span aria-hidden="true">◎</span> Ensayar casos</button><button data-view="fuentes" class="nav"><span aria-hidden="true">⌕</span> Fuentes y trazabilidad</button><button data-view="guia" class="nav"><span aria-hidden="true">?</span> Cómo usarlo</button></nav><div class="sidebar-foot"><span class="avatar">Y</span><div><b>Almacén / Picking</b><small>Vista del operario</small></div></div></aside>
+<div class="shell"><header class="topbar"><span>Pickadeli / Conciliación de recepción</span><span class="demo-tag"><i></i> DEMO LOCAL · SIN CONEXIONES</span></header>
+<main id="main" tabindex="-1">
+<section id="conteo" class="view">
+ <div class="page-heading"><div><p class="eyebrow">PRODUCTO + CONTEO FÍSICO</p><h1>Tú cuentas.<br class="mobile-only"> El sistema busca el sustento.</h1><p class="lede">Registra lo que recibiste. Reuniremos las referencias y guardaremos el resultado por ti.</p></div><button class="button secondary" data-go="casos">Probar otro escenario <span aria-hidden="true">↗</span></button></div>
+ <div class="context-bar"><span><i class="dot"></i> <b>Almacén Principal CIP</b></span><span>Fecha del ensayo: <b>01/07/2026</b></span><span>Hora de corte: <b id="cutoff-label">18:00</b></span><span class="context-note">Contexto precargado; no es una operación de hoy.</span></div>
+ <div id="scenario-banner" class="scenario-banner" hidden><div><span class="eyebrow">ESCENARIO PREPARADO</span><b id="scenario-title"></b><p id="scenario-instruction"></p></div><button id="free-mode" class="text-button">Volver a prueba libre</button></div>
+ <div class="workspace-grid">
+  <section class="card input-card"><div class="section-title"><span class="step">01</span><div><h2>Registra tu conteo</h2><p>Solo el producto y la cantidad que contaste.</p></div></div>
+   <form id="count-form" novalidate><label for="product">Producto</label><input id="product" list="products" placeholder="Busca un producto real…" autocomplete="off" required aria-describedby="product-hint"><datalist id="products"></datalist><p id="product-hint" class="hint">Catálogo seleccionado de los archivos de Pickadeli.</p><div id="selected-product" class="selected-product" hidden></div>
+   <div class="quantity-label"><label for="quantity">Cantidad contada físicamente</label><span id="unit-fixed">unidades</span></div><input id="quantity" type="text" inputmode="decimal" autocomplete="off" placeholder="0" aria-describedby="quantity-hint form-error" required><p id="quantity-hint" class="hint">Ingresa tu conteo completo. Puedes registrar cero.</p><div id="unit-area" hidden><label for="unit">Unidad que estás contando</label><select id="unit"></select><p class="hint">La unidad habitual se elige automáticamente. Cámbiala solo si corresponde.</p></div>
+   <p id="form-error" class="form-error" role="alert" hidden></p><button class="button primary submit" id="submit" type="submit">Buscar evidencia y conciliar <span aria-hidden="true">→</span></button></form>
+   <div class="automatic-note"><span aria-hidden="true">✓</span><p>El sistema relaciona las fuentes, explica el resultado y guarda el caso. No tienes que completar otra ficha.</p></div>
+  </section>
+  <section class="card result-card" aria-label="Resultado de conciliación"><div class="section-title"><span class="step">02</span><div><h2>Resultado de tu recepción</h2><p>La cantidad contada siempre se conserva.</p></div><span id="result-status" class="badge neutral">Sin analizar</span></div><div id="result" aria-live="polite" aria-atomic="true"><div class="empty-result"><div class="empty-icon" aria-hidden="true">⇄</div><h3>Una respuesta con respaldo</h3><p>Selecciona el producto, ingresa tu conteo y pulsa el botón. Aquí verás si coincide, qué explica la diferencia o quién debe aclararla.</p><div class="promise"><span>1 · Relacionar</span><span>2 · Comprobar</span><span>3 · Registrar</span></div></div></div><div id="result-followup" hidden></div><div id="source-shortcuts" class="source-shortcuts" hidden></div></section>
+ </div>
+ <section id="trace-section" class="card trace-section" hidden><div class="section-title"><span class="step">03</span><div><h2>La evidencia que encontró el sistema</h2><p>Abre una referencia para ver archivo, hoja, celda y valor original.</p></div><span id="trace-count" class="badge neutral"></span></div><div class="legend"><span><i class="dot real-dot"></i>Dato del archivo</span><span><i class="dot sim-dot"></i>Supuesto del ensayo</span><span><i class="dot excluded-dot"></i>Contexto / no aplicable</span></div><div id="trace-list" class="trace-grid"></div><details class="excluded"><summary>Fuentes revisadas que no justifican esta recepción</summary><div id="excluded-list"></div></details><details class="assumptions"><summary>Qué se asume en esta simulación</summary><ul id="assumptions-list"></ul></details></section>
+ <div class="small-note"><b>Muestra histórica, no integración en vivo.</b> La base del ensayo toma la entrada por preparación como referencia de una entrega simulada. No se usa el saldo de stock ni un pedido de otra fecha como cantidad declarada.</div>
+</section>
+
+<section id="historial" class="view" hidden><div class="page-heading"><div><p class="eyebrow">GUARDADO AUTOMÁTICO</p><h1>Mis ensayos</h1><p class="lede">Cada conteo conserva su resultado, evidencia y respuestas simuladas. Los ensayos no acumulan stock.</p></div><button id="export" class="button secondary">Ver / exportar registro</button></div><div class="filterbar"><label>Estado<select id="history-filter"><option value="all">Todos</option><option value="matched">Conciliados</option><option value="pending">Pendientes de aclaración</option></select></label><span id="storage-label" class="hint">Guardado local en este navegador.</span></div><div id="history-list"></div><details class="reset-box"><summary>Reiniciar todos los ensayos</summary><p>Elimina únicamente los datos de esta versión de la demo en este navegador.</p><button id="reset" class="button secondary">Borrar mis ensayos</button></details></section>
+
+<section id="casos" class="view" hidden><div class="page-heading"><div><p class="eyebrow">PARA ENSAYAR CON EL OPERARIO</p><h1>Prueba todas las alternativas</h1><p class="lede">Prepara un caso y luego escribe el conteo. Puedes ingresar otra cantidad: el resultado se recalcula, no es una pantalla fija.</p></div></div><div class="info-banner"><b>Productos y referencias reales; conteos de prueba.</b> Las confirmaciones y vinculaciones posteriores se identifican como simuladas. No se atribuyen incidencias inventadas a los archivos.</div><div id="case-grid" class="case-grid"></div></section>
+
+<section id="fuentes" class="view" hidden><div class="page-heading"><div><p class="eyebrow">ORIGEN DE LOS DATOS</p><h1>Trazabilidad, a la vista</h1><p class="lede">7 Excel y 2 documentos analizados. Esta demo incorpora extractos seleccionados; no abre ni consulta los originales al ejecutarse.</p></div></div><div class="source-summary"><div><b id="product-total">15</b><span>productos de la muestra</span></div><div><b id="evidence-total">0</b><span>referencias localizables</span></div><div><b>0</b><span>conexiones externas</span></div></div><div class="info-banner"><b>Producto + fecha + almacén + preparación/lote.</b> El nombre por sí solo no garantiza que dos registros pertenezcan a la misma entrega. Ante ambigüedad, el sistema conserva el conteo y prepara la aclaración.</div><div id="files-list" class="files-list"></div></section>
+
+<section id="guia" class="view" hidden><div class="page-heading"><div><p class="eyebrow">GUÍA PARA EL OPERARIO Y EL EQUIPO</p><h1>Un conteo, un registro.</h1><p class="lede">El operario no tiene que buscar archivos ni escribir la explicación del caso.</p></div></div><div class="guide-hero"><h2>“Elige el producto.<br>Escribe cuánto contaste.<br>Consulta el resultado”.</h2><p>La sesión ya contiene el almacén y la fecha del ensayo. La unidad habitual aparece con el producto. Si hay una diferencia, el sistema reúne las referencias y prepara el seguimiento.</p></div><div class="guide-grid"><article class="card"><span class="step">1</span><h3>Registra</h3><p>Usa Registrar conteo. Selecciona el nombre del catálogo y escribe la cantidad física completa.</p></article><article class="card"><span class="step">2</span><h3>Comprende</h3><p>Un resultado verde indica conciliación cuantitativa en el ensayo. Un pendiente indica qué falta y a qué rol se dirige la aclaración.</p></article><article class="card"><span class="step">3</span><h3>Continúa</h3><p>El caso ya quedó guardado. No tienes que copiar fuentes ni redactar mensajes. Mis ensayos permite recuperarlo después.</p></article></div><section class="card prose"><h2>Guion de demostración · 5 minutos</h2><ol><li><b>Alfajores, 50:</b> coincidencia con una preparación real; abrir la referencia y ver la celda M3573.</li><li><b>Alfajores, 48:</b> faltante sin sustento; mostrar la consulta preparada. El facilitador puede simular una aclaración posterior.</li><li><b>Quinua, 33 bolsas:</b> 33 × 0,6 = 19,8 kg. Mostrar el factor y la preparación de origen.</li><li><b>Chocoproteico, 22:</b> la merma existe, pero no su vínculo al lote. Simular la confirmación y observar la resolución.</li><li><b>Salsa de pavo:</b> mostrar por qué no se convierten kilos a litros automáticamente.</li></ol><p>En una prueba de usabilidad, da solo la tarea: “Registra el producto y lo que contaste; explica qué resultado obtuviste y qué ocurrirá después”. No indiques dónde hacer clic. El equipo observa dudas, tiempo activo y ayudas.</p></section><section class="card prose"><h2>Qué sí demuestra</h2><p>Entrada libre de conteos, recuperación de extractos, comparación, conversiones del ensayo, detección de ambigüedad, trazabilidad, historial y actualización por respuestas simuladas.</p><h2>Qué queda por validar</h2><ul><li>La integración real con Excel, documentos y Restaurant.pe, la actualización oportuna de fuentes y la identificación inequívoca de cada recepción.</li><li>La equivalencia de unidades y la regla de aceptación deben acordarse con Pickadeli. No se aplican porcentajes de tolerancia de pedidos al conteo físico.</li><li>La respuesta de Producción, las notificaciones, la aprobación y el vínculo de mermas son simulados. No hay envío de mensajes ni escritura en inventario.</li><li>No se valida calidad, inocuidad ni autorización de despacho mediante una coincidencia de cantidades.</li><li>El ahorro de tiempo y la ausencia de retrabajo deben medirse con el operario; no son resultados de esta demo.</li></ul></section></section>
+<footer><span>Pickadeli · Prototipo académico v2</span><span>Productos reales · Escenarios de ensayo · Funciona sin internet</span></footer>
+</main></div>
+<dialog id="evidence-dialog" aria-labelledby="dialog-title"><div class="dialog-head"><div><p class="eyebrow">REFERENCIA RECUPERADA</p><h2 id="dialog-title"></h2></div><button class="icon-button" id="close-evidence" aria-label="Cerrar referencia">×</button></div><div id="dialog-content"></div></dialog>
+<dialog id="export-dialog" aria-labelledby="export-title"><div class="dialog-head"><h2 id="export-title">Registro de los ensayos</h2><button class="icon-button" id="close-export" aria-label="Cerrar registro">×</button></div><p class="hint">Copia este contenido o descarga el JSON. Contiene solo los ensayos y referencias de la demo.</p><textarea id="export-content" aria-label="Registro JSON" readonly></textarea><div class="dialog-actions"><button id="copy-export" class="button secondary">Copiar contenido</button><button id="download-export" class="button primary">Descargar JSON</button></div></dialog>
+<div id="toast" class="toast" role="status" hidden></div>
+<script>
+window.PICKADELI_DATA = {
+  "version": 2,
+  "files": {
+    "kardex": {
+      "name": "CG_Rest_ExportInvKardex_Jul.xlsx",
+      "kind": "Exportación de Restaurant.pe",
+      "period": "Movimientos con fecha 01 y 02/07/2026",
+      "role": "Preparaciones, lotes y movimientos. Se usa ENTRADA por preparación; STOCK no es la cantidad entregada.",
+      "scope": "36.413 filas con fecha y 364 filas sin fecha; 1.886 movimientos identificados del CIP."
+    },
+    "mermas": {
+      "name": "CG_Rest_ExportMermas_Jul.xlsx",
+      "kind": "Exportación de salidas",
+      "period": "Encabezado: 15 al 28/06/2026",
+      "role": "Cabeceras con importe y razón; no equivalen a cantidades por producto/lote. No justifican automáticamente un faltante de julio.",
+      "scope": "El nombre Jul no coincide con el periodo declarado dentro del archivo."
+    },
+    "formato": {
+      "name": "Formato de pedidos.xlsx",
+      "kind": "Excel de pedidos",
+      "period": "Pedido!B3: 13/07/2026",
+      "role": "Relaciona nombres de pedido e ítems. Sus reglas de variación de pedidos no son tolerancias de recepción.",
+      "scope": "Catálogo y equivalencias de nombres; no es una declaración real de entrega del 01/07."
+    },
+    "stock": {
+      "name": "Informe_inventario_2026-08-25_21.38.45 insumos.xlsx",
+      "kind": "Reporte de inventario",
+      "period": "Encabezado: 25/08/2026 23:59:59",
+      "role": "Stock de insumos del Almacén Principal CIP. No se mezcla con una preparación de julio.",
+      "scope": "Fotografía de inventario; no acredita una entrega ni su cantidad."
+    },
+    "recetas": {
+      "name": "Insumos_descartables_recetas_mermas.xlsx",
+      "kind": "Excel de requerimientos",
+      "period": "Varias hojas indican semana 09/03 al 13/03",
+      "role": "Nombres de recetas, requerimientos y parámetros de merma. El porcentaje estándar de un insumo no prueba una incidencia del producto terminado.",
+      "scope": "Se consulta como contexto; no se suma demanda histórica a la producción de julio."
+    },
+    "ordenes": {
+      "name": "ORDENES DE PEDIDOS DE LAS TIENDAS 28.02.26.xlsx",
+      "kind": "Excel de pedidos y factores",
+      "period": "PEDIDOS: 02/12/2025 a 28/02/2026",
+      "role": "BASE permite examinar factores y unidades. PEDIDOS es demanda/despacho histórico, no recepción Cocina → Picking en julio.",
+      "scope": "Los factores reutilizados en el ensayo requieren validar vigencia y equivalencia en un piloto."
+    },
+    "recepcion": {
+      "name": "Recepción de materias primas e insumos.xlsx",
+      "kind": "Registro de recepción de insumos",
+      "period": "73 registros con producto; fechas del 01 al 30/07/2026",
+      "role": "Recepción de materias primas, algunos lotes y cantidades. No prueba por sí sola qué lote se consumió en una preparación.",
+      "scope": "La recepción de quinua del 02/07 no puede justificar una producción del 01/07."
+    },
+    "proceso": {
+      "name": "5. Procesos Produccion y almacen -Pickadeli (3).pdf",
+      "kind": "Documento de proceso AS-IS",
+      "period": "Levantamiento: 19/06/2026",
+      "role": "Págs. 6–7: producción y registro posterior. Págs. 10–11: conteo, Kardex y conciliación. Págs. 14–15: gestión de incidencias.",
+      "scope": "Describe el proceso; no contiene cantidades transaccionales para aceptar una recepción."
+    },
+    "solicitud": {
+      "name": "5. Proyecto Integrador - Solicitud data inicial (2).pdf",
+      "kind": "Respuestas del CEO",
+      "period": "Proyecto Integrador 2026-2",
+      "role": "Pág. 2: Excel y Restaurant.pe, registro de cantidades a producir, rendimientos y mermas; diferencias de unidad y doble digitación.",
+      "scope": "Pág. 1 menciona márgenes aceptables, pero no fija umbrales numéricos. No se inventan tolerancias."
+    }
+  },
+  "products": [
+    {
+      "id": "2980",
+      "name": "ALFAJORES GRANDES (RF)",
+      "baseUnit": "UNIDAD",
+      "units": [
+        {
+          "label": "unidades",
+          "factor": 1,
+          "integer": true
+        }
+      ],
+      "refs": [],
+      "context": [
+        "F14",
+        "K3714",
+        "K11474"
+      ],
+      "preps": [
+        {
+          "id": "264485",
+          "lot": "13639",
+          "date": "2026-07-01",
+          "time": "10:42:18",
+          "quantity": 50,
+          "evidence": "K3573"
+        }
+      ],
+      "aliases": [
+        "ALFAJOR X 5 UND"
+      ]
+    },
+    {
+      "id": "2927",
+      "name": "ARROZ INTEGRAL COCIDO PQ X 0.1 KG",
+      "baseUnit": "UNIDAD",
+      "units": [
+        {
+          "label": "unidades",
+          "factor": 1,
+          "integer": true
+        }
+      ],
+      "refs": [],
+      "context": [
+        "F8"
+      ],
+      "preps": [
+        {
+          "id": "264523",
+          "lot": "13646",
+          "date": "2026-07-01",
+          "time": "11:45:04",
+          "quantity": 344,
+          "evidence": "K3152"
+        }
+      ],
+      "aliases": [
+        "ARROZ INTEGRAL PQ X 100 GR"
+      ]
+    },
+    {
+      "id": "3252",
+      "name": "CHOCOPROTEICO (RF)",
+      "baseUnit": "UNIDAD",
+      "units": [
+        {
+          "label": "unidades",
+          "factor": 1,
+          "integer": true
+        }
+      ],
+      "refs": [],
+      "context": [
+        "F45",
+        "K10145",
+        "K11680",
+        "K11683"
+      ],
+      "preps": [
+        {
+          "id": "264486",
+          "lot": "13640",
+          "date": "2026-07-01",
+          "time": "17:48:36",
+          "quantity": 23,
+          "evidence": "K11701"
+        }
+      ],
+      "aliases": [
+        "CHOCOPROTEICO"
+      ],
+      "incident": {
+        "quantity": 1,
+        "evidence": "K11700",
+        "time": "17:49:36",
+        "lot": null,
+        "id": "30004"
+      }
+    },
+    {
+      "id": "313",
+      "name": "QUINUA PERLADA COCIDA - PQ X 0.6 KG",
+      "baseUnit": "KILOS",
+      "units": [
+        {
+          "label": "bolsas de 0,6 kg",
+          "factor": 0.6,
+          "integer": true,
+          "evidence": "B34"
+        },
+        {
+          "label": "kg",
+          "factor": 1,
+          "integer": false
+        }
+      ],
+      "refs": [],
+      "context": [
+        "B34",
+        "R24",
+        "K6408",
+        "K6572"
+      ],
+      "preps": [
+        {
+          "id": "264521",
+          "lot": "13646",
+          "date": "2026-07-01",
+          "time": "11:45:02",
+          "quantity": 19.8,
+          "evidence": "K16259"
+        }
+      ],
+      "aliases": [
+        "QUINUA PERLADA COCIDA - PQ X 0.600 KG"
+      ]
+    },
+    {
+      "id": "3123",
+      "name": "SALSA DE PAVO PQ 0.500 GR",
+      "baseUnit": "LITRO",
+      "units": [
+        {
+          "label": "bolsas (factor en conflicto)",
+          "factor": null,
+          "integer": true
+        },
+        {
+          "label": "litros",
+          "factor": 1,
+          "integer": false
+        }
+      ],
+      "refs": [],
+      "context": [
+        "F42",
+        "B9"
+      ],
+      "preps": [
+        {
+          "id": "264503",
+          "lot": "13643",
+          "date": "2026-07-01",
+          "time": "11:30:09",
+          "quantity": 3,
+          "evidence": "K1061"
+        }
+      ],
+      "aliases": [
+        "SALSA DE PAVO PQ 500 GR"
+      ],
+      "conflict": true,
+      "conflictEvidence": "B9"
+    },
+    {
+      "id": "1024",
+      "name": "TOCINO CROCANTE PQ X 100 GR",
+      "baseUnit": "KILOS",
+      "units": [
+        {
+          "label": "kg",
+          "factor": 1,
+          "integer": false
+        }
+      ],
+      "refs": [],
+      "context": [
+        "F20",
+        "B363"
+      ],
+      "preps": [
+        {
+          "id": "264510",
+          "lot": "13644",
+          "date": "2026-07-01",
+          "time": "11:35:00",
+          "quantity": 3.4,
+          "evidence": "K14754"
+        },
+        {
+          "id": "264541",
+          "lot": "13648",
+          "date": "2026-07-01",
+          "time": "11:55:00",
+          "quantity": 1.5,
+          "evidence": "K14753"
+        }
+      ],
+      "aliases": [
+        "TOCINO CROCANTE X 100GR"
+      ]
+    },
+    {
+      "id": "3017",
+      "name": "BANANA CAKE MOLDE X 5 UND",
+      "baseUnit": "UNIDAD",
+      "units": [
+        {
+          "label": "unidades",
+          "factor": 1,
+          "integer": true
+        }
+      ],
+      "refs": [],
+      "context": [],
+      "preps": [
+        {
+          "id": "264490",
+          "lot": "13641",
+          "date": "2026-07-01",
+          "time": "17:53:47",
+          "quantity": 45,
+          "evidence": "K5760"
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "id": "312",
+      "name": "HUEVO COCIDO - X UNIDAD",
+      "baseUnit": "UNIDAD",
+      "units": [
+        {
+          "label": "unidades",
+          "factor": 1,
+          "integer": true
+        }
+      ],
+      "refs": [],
+      "context": [
+        "F9"
+      ],
+      "preps": [
+        {
+          "id": "264524",
+          "lot": "13646",
+          "date": "2026-07-01",
+          "time": "11:45:05",
+          "quantity": 393,
+          "evidence": "K8568"
+        }
+      ],
+      "aliases": [
+        "HUEVO COCIDO - X 10 UND"
+      ]
+    },
+    {
+      "id": "175",
+      "name": "BROWNIE CLASICO 1.4KG  - MOLDE X 10 UN",
+      "baseUnit": "UNIDAD",
+      "units": [
+        {
+          "label": "unidades",
+          "factor": 1,
+          "integer": true
+        }
+      ],
+      "refs": [],
+      "context": [
+        "F10"
+      ],
+      "preps": [
+        {
+          "id": "264534",
+          "lot": "13647",
+          "date": "2026-07-01",
+          "time": "11:50:08",
+          "quantity": 50,
+          "evidence": "K8712"
+        }
+      ],
+      "aliases": [
+        "BROWNIE - MOLDE X 10 UN"
+      ]
+    },
+    {
+      "id": "1596",
+      "name": "BROWNIE MARMOLEADO 1.4KG - MOLDE X 10 UN",
+      "baseUnit": "UNIDAD",
+      "units": [
+        {
+          "label": "unidades",
+          "factor": 1,
+          "integer": true
+        }
+      ],
+      "refs": [],
+      "context": [
+        "F11"
+      ],
+      "preps": [
+        {
+          "id": "264535",
+          "lot": "13647",
+          "date": "2026-07-01",
+          "time": "11:50:09",
+          "quantity": 150,
+          "evidence": "K13925"
+        }
+      ],
+      "aliases": [
+        "BROWNIE MARMOLEADO - MOLDE X 10 UND"
+      ]
+    },
+    {
+      "id": "1034",
+      "name": "CARROT CAKE X 4 UND (RF)",
+      "baseUnit": "UNIDAD",
+      "units": [
+        {
+          "label": "unidades",
+          "factor": 1,
+          "integer": true
+        }
+      ],
+      "refs": [],
+      "context": [],
+      "preps": [
+        {
+          "id": "264484",
+          "lot": "13639",
+          "date": "2026-07-01",
+          "time": "10:42:17",
+          "quantity": 20,
+          "evidence": "K14477"
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "id": "143",
+      "name": "CHOCLO COCIDO - PQ x 0.5 KG",
+      "baseUnit": "KILOS",
+      "units": [
+        {
+          "label": "kg",
+          "factor": 1,
+          "integer": false
+        }
+      ],
+      "refs": [],
+      "context": [],
+      "preps": [
+        {
+          "id": "264519",
+          "lot": "13646",
+          "date": "2026-07-01",
+          "time": "11:45:00",
+          "quantity": 9,
+          "evidence": "K7008"
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "id": "1357",
+      "name": "POLLO DESHILACHADO PQ X 80 GR",
+      "baseUnit": "UNIDAD",
+      "units": [
+        {
+          "label": "unidades",
+          "factor": 1,
+          "integer": true
+        }
+      ],
+      "refs": [],
+      "context": [],
+      "preps": [
+        {
+          "id": "264511",
+          "lot": "13644",
+          "date": "2026-07-01",
+          "time": "11:35:01",
+          "quantity": 335,
+          "evidence": "K14868"
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "id": "2960",
+      "name": "PIMIENTO SALTEADO PQ X 100 GR",
+      "baseUnit": "UNIDAD",
+      "units": [
+        {
+          "label": "unidades",
+          "factor": 1,
+          "integer": true
+        }
+      ],
+      "refs": [],
+      "context": [],
+      "preps": [
+        {
+          "id": "264493",
+          "lot": "13642",
+          "date": "2026-07-01",
+          "time": "11:25:02",
+          "quantity": 30,
+          "evidence": "K3858"
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "id": "CAT-101",
+      "name": "QUICHE DE QUINUA - MOLDE X 6 UNIDAD",
+      "baseUnit": "UNIDAD",
+      "units": [
+        {
+          "label": "moldes",
+          "factor": 6,
+          "integer": true
+        }
+      ],
+      "preps": [],
+      "refs": [],
+      "context": [
+        "B101"
+      ],
+      "aliases": []
+    }
+  ],
+  "evidence": {
+    "K3573": {
+      "id": "K3573",
+      "source": "kardex",
+      "file": "CG_Rest_ExportInvKardex_Jul.xlsx",
+      "sheet": "Sheet1",
+      "range": "C3573:O3573",
+      "cells": {
+        "C3573": 2980,
+        "D3573": "ALFAJORES GRANDES (RF)",
+        "E3573": "01-07-2026",
+        "F3573": "10:42:18",
+        "G3573": "Almacen Principal CIP",
+        "H3573": "ENTRADA, POR PREPARACION DE RECETA. ",
+        "I3573": "PREPARACION RECETA Nº: 264485 LOTE Nº: 13639",
+        "L3573": "UNIDAD",
+        "M3573": 50,
+        "N3573": 0,
+        "O3573": 62
+      },
+      "title": "ENTRADA, POR PREPARACION DE RECETA.",
+      "kind": "real",
+      "note": "Valores originales. El saldo STOCK se muestra solo como contexto, no como cantidad producida."
+    },
+    "K3152": {
+      "id": "K3152",
+      "source": "kardex",
+      "file": "CG_Rest_ExportInvKardex_Jul.xlsx",
+      "sheet": "Sheet1",
+      "range": "C3152:O3152",
+      "cells": {
+        "C3152": 2927,
+        "D3152": "ARROZ INTEGRAL COCIDO PQ X 0.1 KG",
+        "E3152": "01-07-2026",
+        "F3152": "11:45:04",
+        "G3152": "Almacen Principal CIP",
+        "H3152": "ENTRADA, POR PREPARACION DE RECETA. ",
+        "I3152": "PREPARACION RECETA Nº: 264523 LOTE Nº: 13646",
+        "L3152": "UNIDAD",
+        "M3152": 344,
+        "N3152": 0,
+        "O3152": 357
+      },
+      "title": "ENTRADA, POR PREPARACION DE RECETA.",
+      "kind": "real",
+      "note": "Valores originales. El saldo STOCK se muestra solo como contexto, no como cantidad producida."
+    },
+    "K11701": {
+      "id": "K11701",
+      "source": "kardex",
+      "file": "CG_Rest_ExportInvKardex_Jul.xlsx",
+      "sheet": "Sheet1",
+      "range": "C11701:O11701",
+      "cells": {
+        "C11701": 3252,
+        "D11701": "CHOCOPROTEICO (RF)",
+        "E11701": "01-07-2026",
+        "F11701": "17:48:36",
+        "G11701": "Almacen Principal CIP",
+        "H11701": "ENTRADA, POR PREPARACION DE RECETA. ",
+        "I11701": "PREPARACION RECETA Nº: 264486 LOTE Nº: 13640",
+        "L11701": "UNIDAD",
+        "M11701": 23,
+        "N11701": 0,
+        "O11701": 20
+      },
+      "title": "ENTRADA, POR PREPARACION DE RECETA.",
+      "kind": "real",
+      "note": "Valores originales. El saldo STOCK se muestra solo como contexto, no como cantidad producida."
+    },
+    "K16259": {
+      "id": "K16259",
+      "source": "kardex",
+      "file": "CG_Rest_ExportInvKardex_Jul.xlsx",
+      "sheet": "Sheet1",
+      "range": "C16259:O16259",
+      "cells": {
+        "C16259": 313,
+        "D16259": "QUINUA PERLADA COCIDA - PQ X 0.6 KG",
+        "E16259": "01-07-2026",
+        "F16259": "11:45:02",
+        "G16259": "Almacen Principal CIP",
+        "H16259": "ENTRADA, POR PREPARACION DE RECETA. ",
+        "I16259": "PREPARACION RECETA Nº: 264521 LOTE Nº: 13646",
+        "L16259": "KILOS",
+        "M16259": 19.8,
+        "N16259": 0,
+        "O16259": 19.7
+      },
+      "title": "ENTRADA, POR PREPARACION DE RECETA.",
+      "kind": "real",
+      "note": "Valores originales. El saldo STOCK se muestra solo como contexto, no como cantidad producida."
+    },
+    "K1061": {
+      "id": "K1061",
+      "source": "kardex",
+      "file": "CG_Rest_ExportInvKardex_Jul.xlsx",
+      "sheet": "Sheet1",
+      "range": "C1061:O1061",
+      "cells": {
+        "C1061": 3123,
+        "D1061": "SALSA DE PAVO PQ 0.500 GR",
+        "E1061": "01-07-2026",
+        "F1061": "11:30:09",
+        "G1061": "Almacen Principal CIP",
+        "H1061": "ENTRADA, POR PREPARACION DE RECETA. ",
+        "I1061": "PREPARACION RECETA Nº: 264503 LOTE Nº: 13643",
+        "L1061": "LITRO",
+        "M1061": 3,
+        "N1061": 0,
+        "O1061": 3.88
+      },
+      "title": "ENTRADA, POR PREPARACION DE RECETA.",
+      "kind": "real",
+      "note": "Valores originales. El saldo STOCK se muestra solo como contexto, no como cantidad producida."
+    },
+    "K14754": {
+      "id": "K14754",
+      "source": "kardex",
+      "file": "CG_Rest_ExportInvKardex_Jul.xlsx",
+      "sheet": "Sheet1",
+      "range": "C14754:O14754",
+      "cells": {
+        "C14754": 1024,
+        "D14754": "TOCINO CROCANTE PQ X 100 GR",
+        "E14754": "01-07-2026",
+        "F14754": "11:35:00",
+        "G14754": "Almacen Principal CIP",
+        "H14754": "ENTRADA, POR PREPARACION DE RECETA. ",
+        "I14754": "PREPARACION RECETA Nº: 264510 LOTE Nº: 13644",
+        "L14754": "KILOS",
+        "M14754": 3.4,
+        "N14754": 0,
+        "O14754": 2.82
+      },
+      "title": "ENTRADA, POR PREPARACION DE RECETA.",
+      "kind": "real",
+      "note": "Valores originales. El saldo STOCK se muestra solo como contexto, no como cantidad producida."
+    },
+    "K14753": {
+      "id": "K14753",
+      "source": "kardex",
+      "file": "CG_Rest_ExportInvKardex_Jul.xlsx",
+      "sheet": "Sheet1",
+      "range": "C14753:O14753",
+      "cells": {
+        "C14753": 1024,
+        "D14753": "TOCINO CROCANTE PQ X 100 GR",
+        "E14753": "01-07-2026",
+        "F14753": "11:55:00",
+        "G14753": "Almacen Principal CIP",
+        "H14753": "ENTRADA, POR PREPARACION DE RECETA. ",
+        "I14753": "PREPARACION RECETA Nº: 264541 LOTE Nº: 13648",
+        "L14753": "KILOS",
+        "M14753": 1.5,
+        "N14753": 0,
+        "O14753": 4.32
+      },
+      "title": "ENTRADA, POR PREPARACION DE RECETA.",
+      "kind": "real",
+      "note": "Valores originales. El saldo STOCK se muestra solo como contexto, no como cantidad producida."
+    },
+    "K5760": {
+      "id": "K5760",
+      "source": "kardex",
+      "file": "CG_Rest_ExportInvKardex_Jul.xlsx",
+      "sheet": "Sheet1",
+      "range": "C5760:O5760",
+      "cells": {
+        "C5760": 3017,
+        "D5760": "BANANA CAKE MOLDE X 5 UND",
+        "E5760": "01-07-2026",
+        "F5760": "17:53:47",
+        "G5760": "Almacen Principal CIP",
+        "H5760": "ENTRADA, POR PREPARACION DE RECETA. ",
+        "I5760": "PREPARACION RECETA Nº: 264490 LOTE Nº: 13641",
+        "L5760": "UNIDAD",
+        "M5760": 45,
+        "N5760": 0,
+        "O5760": 21
+      },
+      "title": "ENTRADA, POR PREPARACION DE RECETA.",
+      "kind": "real",
+      "note": "Valores originales. El saldo STOCK se muestra solo como contexto, no como cantidad producida."
+    },
+    "K8568": {
+      "id": "K8568",
+      "source": "kardex",
+      "file": "CG_Rest_ExportInvKardex_Jul.xlsx",
+      "sheet": "Sheet1",
+      "range": "C8568:O8568",
+      "cells": {
+        "C8568": 312,
+        "D8568": "HUEVO COCIDO - X UNIDAD",
+        "E8568": "01-07-2026",
+        "F8568": "11:45:05",
+        "G8568": "Almacen Principal CIP",
+        "H8568": "ENTRADA, POR PREPARACION DE RECETA. ",
+        "I8568": "PREPARACION RECETA Nº: 264524 LOTE Nº: 13646",
+        "L8568": "UNIDAD",
+        "M8568": 393,
+        "N8568": 0,
+        "O8568": 402
+      },
+      "title": "ENTRADA, POR PREPARACION DE RECETA.",
+      "kind": "real",
+      "note": "Valores originales. El saldo STOCK se muestra solo como contexto, no como cantidad producida."
+    },
+    "K8712": {
+      "id": "K8712",
+      "source": "kardex",
+      "file": "CG_Rest_ExportInvKardex_Jul.xlsx",
+      "sheet": "Sheet1",
+      "range": "C8712:O8712",
+      "cells": {
+        "C8712": 175,
+        "D8712": "BROWNIE CLASICO 1.4KG  - MOLDE X 10 UN",
+        "E8712": "01-07-2026",
+        "F8712": "11:50:08",
+        "G8712": "Almacen Principal CIP",
+        "H8712": "ENTRADA, POR PREPARACION DE RECETA. ",
+        "I8712": "PREPARACION RECETA Nº: 264534 LOTE Nº: 13647",
+        "L8712": "UNIDAD",
+        "M8712": 50,
+        "N8712": 0,
+        "O8712": 56
+      },
+      "title": "ENTRADA, POR PREPARACION DE RECETA.",
+      "kind": "real",
+      "note": "Valores originales. El saldo STOCK se muestra solo como contexto, no como cantidad producida."
+    },
+    "K13925": {
+      "id": "K13925",
+      "source": "kardex",
+      "file": "CG_Rest_ExportInvKardex_Jul.xlsx",
+      "sheet": "Sheet1",
+      "range": "C13925:O13925",
+      "cells": {
+        "C13925": 1596,
+        "D13925": "BROWNIE MARMOLEADO 1.4KG - MOLDE X 10 UN",
+        "E13925": "01-07-2026",
+        "F13925": "11:50:09",
+        "G13925": "Almacen Principal CIP",
+        "H13925": "ENTRADA, POR PREPARACION DE RECETA. ",
+        "I13925": "PREPARACION RECETA Nº: 264535 LOTE Nº: 13647",
+        "L13925": "UNIDAD",
+        "M13925": 150,
+        "N13925": 0,
+        "O13925": 157
+      },
+      "title": "ENTRADA, POR PREPARACION DE RECETA.",
+      "kind": "real",
+      "note": "Valores originales. El saldo STOCK se muestra solo como contexto, no como cantidad producida."
+    },
+    "K14477": {
+      "id": "K14477",
+      "source": "kardex",
+      "file": "CG_Rest_ExportInvKardex_Jul.xlsx",
+      "sheet": "Sheet1",
+      "range": "C14477:O14477",
+      "cells": {
+        "C14477": 1034,
+        "D14477": "CARROT CAKE X 4 UND (RF)",
+        "E14477": "01-07-2026",
+        "F14477": "10:42:17",
+        "G14477": "Almacen Principal CIP",
+        "H14477": "ENTRADA, POR PREPARACION DE RECETA. ",
+        "I14477": "PREPARACION RECETA Nº: 264484 LOTE Nº: 13639",
+        "L14477": "UNIDAD",
+        "M14477": 20,
+        "N14477": 0,
+        "O14477": 20
+      },
+      "title": "ENTRADA, POR PREPARACION DE RECETA.",
+      "kind": "real",
+      "note": "Valores originales. El saldo STOCK se muestra solo como contexto, no como cantidad producida."
+    },
+    "K7008": {
+      "id": "K7008",
+      "source": "kardex",
+      "file": "CG_Rest_ExportInvKardex_Jul.xlsx",
+      "sheet": "Sheet1",
+      "range": "C7008:O7008",
+      "cells": {
+        "C7008": 143,
+        "D7008": "CHOCLO COCIDO - PQ x 0.5 KG",
+        "E7008": "01-07-2026",
+        "F7008": "11:45:00",
+        "G7008": "Almacen Principal CIP",
+        "H7008": "ENTRADA, POR PREPARACION DE RECETA. ",
+        "I7008": "PREPARACION RECETA Nº: 264519 LOTE Nº: 13646",
+        "L7008": "KILOS",
+        "M7008": 9,
+        "N7008": 0,
+        "O7008": 8.93
+      },
+      "title": "ENTRADA, POR PREPARACION DE RECETA.",
+      "kind": "real",
+      "note": "Valores originales. El saldo STOCK se muestra solo como contexto, no como cantidad producida."
+    },
+    "K14868": {
+      "id": "K14868",
+      "source": "kardex",
+      "file": "CG_Rest_ExportInvKardex_Jul.xlsx",
+      "sheet": "Sheet1",
+      "range": "C14868:O14868",
+      "cells": {
+        "C14868": 1357,
+        "D14868": "POLLO DESHILACHADO PQ X 80 GR",
+        "E14868": "01-07-2026",
+        "F14868": "11:35:01",
+        "G14868": "Almacen Principal CIP",
+        "H14868": "ENTRADA, POR PREPARACION DE RECETA. ",
+        "I14868": "PREPARACION RECETA Nº: 264511 LOTE Nº: 13644",
+        "L14868": "UNIDAD",
+        "M14868": 335,
+        "N14868": 0,
+        "O14868": 341
+      },
+      "title": "ENTRADA, POR PREPARACION DE RECETA.",
+      "kind": "real",
+      "note": "Valores originales. El saldo STOCK se muestra solo como contexto, no como cantidad producida."
+    },
+    "K3858": {
+      "id": "K3858",
+      "source": "kardex",
+      "file": "CG_Rest_ExportInvKardex_Jul.xlsx",
+      "sheet": "Sheet1",
+      "range": "C3858:O3858",
+      "cells": {
+        "C3858": 2960,
+        "D3858": "PIMIENTO SALTEADO PQ X 100 GR",
+        "E3858": "01-07-2026",
+        "F3858": "11:25:02",
+        "G3858": "Almacen Principal CIP",
+        "H3858": "ENTRADA, POR PREPARACION DE RECETA. ",
+        "I3858": "PREPARACION RECETA Nº: 264493 LOTE Nº: 13642",
+        "L3858": "UNIDAD",
+        "M3858": 30,
+        "N3858": 0,
+        "O3858": 30
+      },
+      "title": "ENTRADA, POR PREPARACION DE RECETA.",
+      "kind": "real",
+      "note": "Valores originales. El saldo STOCK se muestra solo como contexto, no como cantidad producida."
+    },
+    "F14": {
+      "id": "F14",
+      "source": "formato",
+      "file": "Formato de pedidos.xlsx",
+      "sheet": "Pedido",
+      "range": "A14, B14, C14, D14",
+      "cells": {
+        "A14": "ALFAJOR X 5 UND",
+        "B14": "PAQ X 5 UND",
+        "C14": "ALFAJORES GRANDES (RF)",
+        "D14": "POSTRES"
+      },
+      "title": "Equivalencia de nombres en formato de pedidos",
+      "kind": "real",
+      "note": "Uso como catálogo en la simulación; no acredita una entrega en julio."
+    },
+    "F8": {
+      "id": "F8",
+      "source": "formato",
+      "file": "Formato de pedidos.xlsx",
+      "sheet": "Pedido",
+      "range": "A8, B8, C8, D8",
+      "cells": {
+        "A8": "ARROZ INTEGRAL PQ X 100 GR",
+        "B8": "BOLSA",
+        "C8": "ARROZ INTEGRAL COCIDO PQ X 0.1 KG",
+        "D8": "COCIDOS"
+      },
+      "title": "Equivalencia de nombres en formato de pedidos",
+      "kind": "real",
+      "note": "Uso como catálogo en la simulación; no acredita una entrega en julio."
+    },
+    "F45": {
+      "id": "F45",
+      "source": "formato",
+      "file": "Formato de pedidos.xlsx",
+      "sheet": "Pedido",
+      "range": "A45, B45, C45, D45",
+      "cells": {
+        "A45": "CHOCOPROTEICO",
+        "B45": "UNIDAD",
+        "C45": "CHOCOPROTEICO (RF)",
+        "D45": "POSTRES"
+      },
+      "title": "Equivalencia de nombres en formato de pedidos",
+      "kind": "real",
+      "note": "Uso como catálogo en la simulación; no acredita una entrega en julio."
+    },
+    "F42": {
+      "id": "F42",
+      "source": "formato",
+      "file": "Formato de pedidos.xlsx",
+      "sheet": "Pedido",
+      "range": "A42, B42, C42, D42",
+      "cells": {
+        "A42": "SALSA DE PAVO PQ 500 GR",
+        "B42": "BOLSA",
+        "C42": "SALSA DE PAVO PQ 0.500 GR",
+        "D42": "SALSAS"
+      },
+      "title": "Equivalencia de nombres en formato de pedidos",
+      "kind": "real",
+      "note": "Uso como catálogo en la simulación; no acredita una entrega en julio."
+    },
+    "F20": {
+      "id": "F20",
+      "source": "formato",
+      "file": "Formato de pedidos.xlsx",
+      "sheet": "Pedido",
+      "range": "A20, B20, C20, D20",
+      "cells": {
+        "A20": "TOCINO CROCANTE X 100GR",
+        "B20": "BOLSA",
+        "C20": "TOCINO CROCANTE PQ X 100 GR",
+        "D20": "PREPARACIONES"
+      },
+      "title": "Equivalencia de nombres en formato de pedidos",
+      "kind": "real",
+      "note": "Uso como catálogo en la simulación; no acredita una entrega en julio."
+    },
+    "F9": {
+      "id": "F9",
+      "source": "formato",
+      "file": "Formato de pedidos.xlsx",
+      "sheet": "Pedido",
+      "range": "A9, B9, C9, D9",
+      "cells": {
+        "A9": "HUEVO COCIDO - X 10 UND",
+        "B9": "PAQ x 10 UND",
+        "C9": "HUEVO COCIDO - X UNIDAD",
+        "D9": "COCIDOS"
+      },
+      "title": "Equivalencia de nombres en formato de pedidos",
+      "kind": "real",
+      "note": "Uso como catálogo en la simulación; no acredita una entrega en julio."
+    },
+    "F10": {
+      "id": "F10",
+      "source": "formato",
+      "file": "Formato de pedidos.xlsx",
+      "sheet": "Pedido",
+      "range": "A10, B10, C10, D10",
+      "cells": {
+        "A10": "BROWNIE - MOLDE X 10 UN",
+        "B10": "MOLDE X 10 PORC",
+        "C10": "BROWNIE CLASICO 1.4KG - MOLDE X 10 UN",
+        "D10": "POSTRES"
+      },
+      "title": "Equivalencia de nombres en formato de pedidos",
+      "kind": "real",
+      "note": "Uso como catálogo en la simulación; no acredita una entrega en julio."
+    },
+    "F11": {
+      "id": "F11",
+      "source": "formato",
+      "file": "Formato de pedidos.xlsx",
+      "sheet": "Pedido",
+      "range": "A11, B11, C11, D11",
+      "cells": {
+        "A11": "BROWNIE MARMOLEADO - MOLDE X 10 UND",
+        "B11": "MOLDE X 10 PORC",
+        "C11": "BROWNIE MARMOLEADO 1.4KG - MOLDE X 10 UN",
+        "D11": "POSTRES"
+      },
+      "title": "Equivalencia de nombres en formato de pedidos",
+      "kind": "real",
+      "note": "Uso como catálogo en la simulación; no acredita una entrega en julio."
+    },
+    "B34": {
+      "id": "B34",
+      "source": "ordenes",
+      "file": "ORDENES DE PEDIDOS DE LAS TIENDAS 28.02.26.xlsx",
+      "sheet": "BASE",
+      "range": "A34, B34, D34, E34",
+      "cells": {
+        "A34": "QUINUA PERLADA COCIDA - PQ X 0.600 KG",
+        "B34": 0.6,
+        "D34": "KILOS",
+        "E34": "BOLSA"
+      },
+      "title": "Factor real: 0,6 kg por bolsa",
+      "kind": "real",
+      "note": "Se asume vigente para el ensayo. Un factor no prueba una entrega."
+    },
+    "R24": {
+      "id": "R24",
+      "source": "recepcion",
+      "file": "Recepción de materias primas e insumos.xlsx",
+      "sheet": "Respuestas de formulario 1",
+      "range": "B24, C24, F24, H24",
+      "cells": {
+        "B24": "2026-07-02T00:00:00",
+        "C24": "QUINUA PERLADA BOLSA X 1 KG",
+        "F24": "ATC2_QB5667",
+        "H24": 50.0
+      },
+      "title": "Recepción de quinua del día siguiente",
+      "kind": "excluded",
+      "note": "Fecha 02/07/2026: posterior a la preparación del 01/07. Sin vínculo de consumo por lote."
+    },
+    "K6408": {
+      "id": "K6408",
+      "source": "kardex",
+      "file": "CG_Rest_ExportInvKardex_Jul.xlsx",
+      "sheet": "Sheet1",
+      "range": "C6408:O6408",
+      "cells": {
+        "C6408": 131,
+        "D6408": "QUINUA PERLADA",
+        "E6408": "01-07-2026",
+        "F6408": "11:45:02",
+        "G6408": "Almacen Principal CIP",
+        "H6408": "SALIDA, POR PREPARACION DE RECETA. ",
+        "I6408": "PREPARACION RECETA Nº: 264521 LOTE Nº: 13646",
+        "L6408": "KILOS",
+        "M6408": 0,
+        "N6408": 10.5,
+        "O6408": 88.18
+      },
+      "title": "SALIDA, POR PREPARACION DE RECETA.",
+      "kind": "real",
+      "note": "Valores originales. El saldo STOCK se muestra solo como contexto, no como cantidad producida."
+    },
+    "K6572": {
+      "id": "K6572",
+      "source": "kardex",
+      "file": "CG_Rest_ExportInvKardex_Jul.xlsx",
+      "sheet": "Sheet1",
+      "range": "C6572:O6572",
+      "cells": {
+        "C6572": 126,
+        "D6572": "SAL FINA",
+        "E6572": "01-07-2026",
+        "F6572": "11:45:02",
+        "G6572": "Almacen Principal CIP",
+        "H6572": "SALIDA, POR PREPARACION DE RECETA. ",
+        "I6572": "PREPARACION RECETA Nº: 264521 LOTE Nº: 13646",
+        "L6572": "KILOS",
+        "M6572": 0,
+        "N6572": 0.105,
+        "O6572": -5.936
+      },
+      "title": "SALIDA, POR PREPARACION DE RECETA.",
+      "kind": "real",
+      "note": "Valores originales. El saldo STOCK se muestra solo como contexto, no como cantidad producida."
+    },
+    "K11700": {
+      "id": "K11700",
+      "source": "kardex",
+      "file": "CG_Rest_ExportInvKardex_Jul.xlsx",
+      "sheet": "Sheet1",
+      "range": "C11700:O11700",
+      "cells": {
+        "C11700": 3252,
+        "D11700": "CHOCOPROTEICO (RF)",
+        "E11700": "01-07-2026",
+        "F11700": "17:49:36",
+        "G11700": "Almacen Principal CIP",
+        "H11700": "SALIDA, POR MERMA. ",
+        "I11700": " Nº: 30004",
+        "L11700": "UNIDAD",
+        "M11700": 0,
+        "N11700": 1,
+        "O11700": 19
+      },
+      "title": "SALIDA, POR MERMA.",
+      "kind": "real",
+      "note": "Valores originales. El saldo STOCK se muestra solo como contexto, no como cantidad producida."
+    },
+    "K10145": {
+      "id": "K10145",
+      "source": "kardex",
+      "file": "CG_Rest_ExportInvKardex_Jul.xlsx",
+      "sheet": "Sheet1",
+      "range": "C10145:O10145",
+      "cells": {
+        "C10145": 78,
+        "D10145": "ALMENDRA",
+        "E10145": "01-07-2026",
+        "F10145": "17:48:36",
+        "G10145": "Almacen Principal CIP",
+        "H10145": "SALIDA, POR PREPARACION DE RECETA. ",
+        "I10145": "PREPARACION RECETA Nº: 264486 LOTE Nº: 13640",
+        "L10145": "KILOS",
+        "M10145": 0,
+        "N10145": 0.286,
+        "O10145": -0.326
+      },
+      "title": "SALIDA, POR PREPARACION DE RECETA.",
+      "kind": "real",
+      "note": "Valores originales. El saldo STOCK se muestra solo como contexto, no como cantidad producida."
+    },
+    "K11680": {
+      "id": "K11680",
+      "source": "kardex",
+      "file": "CG_Rest_ExportInvKardex_Jul.xlsx",
+      "sheet": "Sheet1",
+      "range": "C11680:O11680",
+      "cells": {
+        "C11680": 3251,
+        "D11680": "QUEQUE (CHOCOPROTEICO)",
+        "E11680": "01-07-2026",
+        "F11680": "17:48:36",
+        "G11680": "Almacen Principal CIP",
+        "H11680": "SALIDA, POR PREPARACION DE RECETA. ",
+        "I11680": "PREPARACION RECETA Nº: 264486 LOTE Nº: 13640",
+        "L11680": "UNIDAD",
+        "M11680": 0,
+        "N11680": 22,
+        "O11680": -22
+      },
+      "title": "SALIDA, POR PREPARACION DE RECETA.",
+      "kind": "real",
+      "note": "Valores originales. El saldo STOCK se muestra solo como contexto, no como cantidad producida."
+    },
+    "K11683": {
+      "id": "K11683",
+      "source": "kardex",
+      "file": "CG_Rest_ExportInvKardex_Jul.xlsx",
+      "sheet": "Sheet1",
+      "range": "C11683:O11683",
+      "cells": {
+        "C11683": 3250,
+        "D11683": "PUDDING (CHOCOPROTEICO)",
+        "E11683": "01-07-2026",
+        "F11683": "17:48:36",
+        "G11683": "Almacen Principal CIP",
+        "H11683": "SALIDA, POR PREPARACION DE RECETA. ",
+        "I11683": "PREPARACION RECETA Nº: 264486 LOTE Nº: 13640",
+        "L11683": "UNIDAD",
+        "M11683": 0,
+        "N11683": 22,
+        "O11683": -22
+      },
+      "title": "SALIDA, POR PREPARACION DE RECETA.",
+      "kind": "real",
+      "note": "Valores originales. El saldo STOCK se muestra solo como contexto, no como cantidad producida."
+    },
+    "K3714": {
+      "id": "K3714",
+      "source": "kardex",
+      "file": "CG_Rest_ExportInvKardex_Jul.xlsx",
+      "sheet": "Sheet1",
+      "range": "C3714:O3714",
+      "cells": {
+        "C3714": 3012,
+        "D3714": "MANJAR DE OLLA X PQ 0.12 KG",
+        "E3714": "01-07-2026",
+        "F3714": "10:42:18",
+        "G3714": "Almacen Principal CIP",
+        "H3714": "SALIDA, POR PREPARACION DE RECETA. ",
+        "I3714": "PREPARACION RECETA Nº: 264485 LOTE Nº: 13639",
+        "L3714": "KILOS",
+        "M3714": 0,
+        "N3714": 3.6,
+        "O3714": -3.48
+      },
+      "title": "SALIDA, POR PREPARACION DE RECETA.",
+      "kind": "real",
+      "note": "Valores originales. El saldo STOCK se muestra solo como contexto, no como cantidad producida."
+    },
+    "K11474": {
+      "id": "K11474",
+      "source": "kardex",
+      "file": "CG_Rest_ExportInvKardex_Jul.xlsx",
+      "sheet": "Sheet1",
+      "range": "C11474:O11474",
+      "cells": {
+        "C11474": 3269,
+        "D11474": "ALFAJORES GRANDES TAPAS",
+        "E11474": "01-07-2026",
+        "F11474": "10:42:18",
+        "G11474": "Almacen Principal CIP",
+        "H11474": "SALIDA, POR PREPARACION DE RECETA. ",
+        "I11474": "PREPARACION RECETA Nº: 264485 LOTE Nº: 13639",
+        "L11474": "UNIDAD",
+        "M11474": 0,
+        "N11474": 100,
+        "O11474": 120
+      },
+      "title": "SALIDA, POR PREPARACION DE RECETA.",
+      "kind": "real",
+      "note": "Valores originales. El saldo STOCK se muestra solo como contexto, no como cantidad producida."
+    },
+    "B363": {
+      "id": "B363",
+      "source": "ordenes",
+      "file": "ORDENES DE PEDIDOS DE LAS TIENDAS 28.02.26.xlsx",
+      "sheet": "BASE",
+      "range": "A363, B363, D363, E363",
+      "cells": {
+        "A363": "TOCINO CROCANTE X 100GR",
+        "B363": 0.1,
+        "D363": null,
+        "E363": null
+      },
+      "title": "Factor de tocino con unidad base vacía",
+      "kind": "real",
+      "note": "El factor 0,1 existe, pero sus unidades están vacías. No se usa para convertir bolsas; el ensayo recibe kg como el Kardex. Las dos preparaciones no se suman sin asignación."
+    },
+    "B9": {
+      "id": "B9",
+      "source": "ordenes",
+      "file": "ORDENES DE PEDIDOS DE LAS TIENDAS 28.02.26.xlsx",
+      "sheet": "BASE",
+      "range": "A9, B9, D9, E9",
+      "cells": {
+        "A9": "SALSA DE PAVO PQ 500 GR",
+        "B9": 0.5,
+        "D9": "KILOS",
+        "E9": "BOLSA"
+      },
+      "title": "Conflicto real: factor en kilos y Kardex en litros",
+      "kind": "real",
+      "note": "No convertir kg a litros sin una equivalencia validada."
+    },
+    "B101": {
+      "id": "B101",
+      "source": "ordenes",
+      "file": "ORDENES DE PEDIDOS DE LAS TIENDAS 28.02.26.xlsx",
+      "sheet": "BASE",
+      "range": "A101, B101, D101, E101",
+      "cells": {
+        "A101": "QUICHE DE QUINUA - MOLDE X 6 UNIDAD",
+        "B101": 6,
+        "D101": "UNIDAD",
+        "E101": "MOLDE"
+      },
+      "title": "Producto en catálogo sin preparación localizada",
+      "kind": "real",
+      "note": ""
+    },
+    "MHEAD": {
+      "id": "MHEAD",
+      "source": "mermas",
+      "file": "CG_Rest_ExportMermas_Jul.xlsx",
+      "sheet": "Sheet1",
+      "range": "A1, A4, G4, J4",
+      "cells": {
+        "A1": "Reporte de salidas de stock desde 15-06-2026 00:00:00 hasta 28-06-2026 23:59:59",
+        "A4": "Cod.",
+        "G4": "Importe",
+        "J4": "Razon"
+      },
+      "title": "Periodo y estructura del reporte de mermas",
+      "kind": "excluded",
+      "note": "Contiene importes y razones de junio; no se usa como detalle de unidades de una entrega de julio."
+    },
+    "SHEAD": {
+      "id": "SHEAD",
+      "source": "stock",
+      "file": "Informe_inventario_2026-08-25_21.38.45 insumos.xlsx",
+      "sheet": "Sheet1",
+      "range": "A1, A2, C4, F4, I4",
+      "cells": {
+        "A1": "Reporte de stock",
+        "A2": "Fecha: 25/08/2026 23:59:59 | Almacén: Almacen Principal CIP | Local: Centro De Producción | Tipo: Insumos",
+        "C4": "Item",
+        "F4": "Unidad medida",
+        "I4": "Stock"
+      },
+      "title": "Inventario de agosto",
+      "kind": "excluded",
+      "note": "Periodo y alcance distintos: stock de insumos, no entrega de producto terminado."
+    },
+    "REQ6": {
+      "id": "REQ6",
+      "source": "recetas",
+      "file": "Insumos_descartables_recetas_mermas.xlsx",
+      "sheet": "Recetas total",
+      "range": "A1, A2, A5, B5, C5, A6, B6, C6",
+      "cells": {
+        "A1": "Requerimiento de Stock - Recetas",
+        "A2": "Semana 09/03 al 13/03",
+        "A5": "INSUMO / PRODUCTO",
+        "B5": "UNIDAD MEDIDA",
+        "C5": "lunes",
+        "A6": "ALFAJORES GRANDES (RF)",
+        "B6": "UNIDAD",
+        "C6": 28
+      },
+      "title": "Requerimiento histórico de alfajores",
+      "kind": "context",
+      "note": "28 es un requerimiento de lunes; no es lo producido ni declarado para esta recepción."
+    },
+    "ORDER18440": {
+      "id": "ORDER18440",
+      "source": "ordenes",
+      "file": "ORDENES DE PEDIDOS DE LAS TIENDAS 28.02.26.xlsx",
+      "sheet": "PEDIDOS",
+      "range": "A18440, B18440, C18440, E18440, F18440, G18440",
+      "cells": {
+        "A18440": "CHORRILLOS",
+        "B18440": "2026-02-28T00:00:00",
+        "C18440": "ALFAJOR GRANDE",
+        "E18440": "UNIDAD",
+        "F18440": 5,
+        "G18440": 5
+      },
+      "title": "Pedido histórico de alfajores en Chorrillos",
+      "kind": "excluded",
+      "note": "Pedido de febrero: no se usa para cerrar la recepción del 01/07."
+    },
+    "DOC7": {
+      "id": "DOC7",
+      "source": "proceso",
+      "file": "5. Procesos Produccion y almacen -Pickadeli (3).pdf",
+      "sheet": "Página 7",
+      "range": "Reglas de negocio",
+      "cells": {
+        "Regla": "El registro de cocinados, transferencias y salidas puede realizarse al final o incluso al día siguiente."
+      },
+      "title": "Registro posterior documentado",
+      "kind": "context",
+      "note": "Síntesis del contenido de la página indicada, no cita literal ni movimiento transaccional."
+    },
+    "DOC11": {
+      "id": "DOC11",
+      "source": "proceso",
+      "file": "5. Procesos Produccion y almacen -Pickadeli (3).pdf",
+      "sheet": "Página 11",
+      "range": "Pasos 28–35",
+      "cells": {
+        "Paso 31": "Si no cuadra, se revisan reportes de WhatsApp, producción real, transferencias o salidas.",
+        "Paso 32": "Se regulariza el Kardex según sustento disponible."
+      },
+      "title": "Proceso de conciliación actual",
+      "kind": "context",
+      "note": "Síntesis del contenido de la página indicada, no cita literal ni movimiento transaccional."
+    },
+    "CEO2": {
+      "id": "CEO2",
+      "source": "solicitud",
+      "file": "5. Proyecto Integrador - Solicitud data inicial (2).pdf",
+      "sheet": "Página 2",
+      "range": "Preguntas a usuarios internos",
+      "cells": {
+        "Herramientas": "Sistema logístico restaurant.pe y Excel.",
+        "Registro": "Se digitan cantidades a producirse, rendimiento y merma.",
+        "Dificultad": "De tiendas llega una unidad de medida diferente a la del sistema."
+      },
+      "title": "Fuentes y diferencias de unidad documentadas",
+      "kind": "context",
+      "note": "Síntesis del contenido de la página indicada, no cita literal ni movimiento transaccional."
+    }
+  },
+  "defaults": {
+    "date": "2026-07-01",
+    "cutoff": "18:00:00",
+    "warehouse": "Almacén Principal CIP"
+  },
+  "assumptions": [
+    "La entrada por preparación se usa como cantidad declarada de una recepción simulada. No se afirma que el archivo pruebe la entrega física.",
+    "La sesión fija fecha y almacén para que el operario solo elija producto y cantidad. En producción real se necesitaría identificar inequívocamente la recepción.",
+    "Los factores usados requieren validación de vigencia. No se aplica una tolerancia porcentual.",
+    "Confirmaciones, asignaciones y consultas a responsables se simulan; no hay envíos ni actualizaciones externas."
+  ]
+};
+
+(function(root){
+ 'use strict';
+ const scenarios=[
+  {id:'libre',title:'Prueba libre',product:'2980',suggestion:'Ingresa cualquier cantidad y observa cómo cambia el resultado.',count:null},
+  {id:'coincide',title:'Cantidades coincidentes',product:'2980',count:50,suggestion:'Selecciona Alfajores grandes e ingresa 50 unidades.'},
+  {id:'faltante',title:'Faltante sin explicación',product:'2980',count:48,suggestion:'Ingresa 48 alfajores. El sistema buscará el sustento de las 2 unidades faltantes.'},
+  {id:'sobrante',title:'Sobrante sin explicación',product:'2980',count:52,suggestion:'Ingresa 52 alfajores. Comprueba que un sobrante tampoco se acepta sin sustento.'},
+  {id:'merma',title:'Merma localizada, lote por confirmar',product:'3252',count:22,suggestion:'Ingresa 22 chocoproteicos. Se localizarán una preparación de 23 y una merma de 1 sin lote explícito.'},
+  {id:'conversion',title:'Bolsas y kilos equivalentes',product:'313',count:33,suggestion:'Ingresa 33 bolsas de quinua. El factor de 0,6 kg permite compararlas con 19,8 kg.'},
+  {id:'unidad',title:'Unidades incompatibles',product:'3123',count:6,suggestion:'Ingresa 6 bolsas de salsa de pavo. El sistema encontrará kilos en BASE y litros en Kardex.'},
+  {id:'lotes',title:'Dos preparaciones posibles',product:'1024',count:3.4,suggestion:'Ingresa 3,4 kg de tocino. Existen dos preparaciones y el sistema debe evitar elegir una por conveniencia.'},
+  {id:'tardia',title:'Registro aún no disponible',product:'3017',count:45,cutoff:'17:00:00',suggestion:'Ingresa 45 unidades del registro de Banana cake. El ensayo ocurre a las 17:00 y la preparación aparece a las 17:53:47.'},
+  {id:'sinfuente',title:'Fuente temporalmente no disponible',product:'2980',count:50,offline:true,suggestion:'Ingresa 50 alfajores con el Kardex no disponible en este ensayo. No se debe interpretar la ausencia como cero.'},
+  {id:'sinregistro',title:'Producto sin preparación localizada',product:'CAT-101',count:2,suggestion:'Ingresa 2 moldes de quiche de quinua. El nombre existe en BASE, pero no hay una preparación correspondiente en la muestra.'}
+ ];
+ function parseCount(raw){
+  const s=String(raw??'').trim();
+  if(!s)return {error:'Ingresa la cantidad que contaste. Cero es un conteo válido.'};
+  if(!/^\d+(?:[.,]\d{1,3})?$/.test(s))return {error:'Usa una cantidad igual o mayor que cero, con hasta 3 decimales. No uses separadores de miles.'};
+  const n=Number(s.replace(',','.'));if(!Number.isFinite(n)||n>1000000)return {error:'La cantidad supera el límite de un millón de esta demo. Revisa el dato.'};return {value:n};
+ }
+ function evaluate(data,productId,raw,unitIndex,ctx={}){
+  const p=data.products.find(x=>x.id===productId),parsed=parseCount(raw);
+  if(!p)return {state:'invalid',error:'Selecciona un producto del catálogo de la demo.'};
+  if(parsed.error)return {state:'invalid',error:parsed.error};
+  const unit=p.units[unitIndex];if(!unit)return {state:'invalid',error:'Selecciona una unidad disponible.'};
+  if(unit.integer&&!Number.isInteger(parsed.value))return {state:'invalid',error:'El conteo en unidades, bolsas o moldes debe ser un número entero.'};
+  const count=parsed.value, normalized=unit.factor===null?null:Math.round(count*unit.factor*1e6)/1e6;
+  let base={product:p.id,count,unitIndex,unit:unit.label,normalized,baseUnit:p.baseUnit,declared:null,expected:null,accepted:null,delta:null,prep:null,owner:null,evidence:[],context:[...p.context],rule:null,simulated:[],action:'',reason:''};
+  const pending=(state,title,reason,owner,action)=>({...base,state,title,reason,owner,action});
+  if(ctx.offline)return pending('offline','No se pudo consultar el Kardex','La fuente está deshabilitada en este ensayo. El conteo queda guardado; el sistema no asume una cantidad declarada de cero.','Responsable del sistema','Se prepara un reintento automático. Restauración simulada desde los controles del facilitador.');
+  const all=p.preps.filter(r=>r.date===(ctx.date||'2026-07-01'));
+  const eligible=all.filter(r=>r.time<=(ctx.cutoff||'18:00:00'));
+  if(!eligible.length){
+   base.context.push('DOC7');
+   return pending(all.length?'late':'missing',all.length?'El registro aún no está disponible':'No hay una preparación para este conteo',all.length?'A la hora del ensayo no se ha registrado la preparación. El sistema solicita el dato al origen y conserva tu conteo.':'El producto existe en el catálogo, pero la muestra no contiene una preparación para la fecha y el almacén del ensayo. Un pedido histórico no sustituye ese dato.','Producción / responsable del registro','Consulta preparada con producto, cantidad y contexto. No necesitas volver a escribirlos.');
+  }
+  let prep=eligible.find(r=>r.id===ctx.prepId);const assigned=!!prep;
+  if(!prep&&eligible.length>1){base.evidence=eligible.map(r=>r.evidence);return pending('ambiguous','Hay más de una preparación posible','Se encontraron dos preparaciones del producto. El sistema no suma lotes ni elige el que coincide con tu conteo sin identificar la recepción.','Producción / responsable de la entrega','Solicitud preparada para identificar la preparación correspondiente.');}
+  prep=prep||eligible[0];base.prep=prep;base.declared=prep.quantity;base.expected=prep.quantity;base.evidence=[prep.evidence];
+  if(assigned)base.simulated.push({title:'Asignación de recepción simulada',detail:`El facilitador asignó esta recepción a la preparación ${prep.id}, lote ${prep.lot}. No es una asignación encontrada en el ZIP.`});
+  if(p.conflict){base.evidence.push(p.conflictEvidence);return pending('unitConflict','Las fuentes usan unidades incompatibles','Kardex registra litros; BASE define 0,5 kilos por bolsa para salsa de pavo. No hay equivalencia validada entre kilos y litros.','Producción / responsable del catálogo','Se prepara la revisión de unidad y factor. No se calcula una cantidad aceptada.');}
+  if(unit.evidence)base.evidence.push(unit.evidence);
+  const incident=p.incident && p.incident.time<=(ctx.cutoff||'18:00:00')?p.incident:null;
+  if(incident){
+   base.evidence.push(incident.evidence);
+   if(!ctx.linkIncident)return pending('unlinked','Hay una merma, pero falta vincularla al lote','La preparación registra 23 unidades y existe una salida por merma de 1 del mismo producto, fecha y almacén. La merma no incluye lote: no basta para aceptar 22 automáticamente.','Producción / responsable de la merma','Consulta preparada para confirmar si la merma 30004 corresponde al lote 13640.');
+   base.expected=Math.round((prep.quantity-incident.quantity)*1e6)/1e6;
+   base.simulated.push({title:'Vínculo confirmado solo para el ensayo',detail:'Producción confirma, en una respuesta ficticia, que la merma 30004 de 1 unidad corresponde al lote 13640. La causa física no consta y no se inventa.'});
+  }
+  const confirmed=!!(ctx.response && ctx.response.product===p.id && ctx.response.prep===prep.id && ctx.response.quantity===normalized);
+  if(confirmed){
+   base.expected=normalized;base.simulated.push({title:'Aclaración de Producción simulada',detail:`Respuesta ficticia del responsable: la cantidad de esta entrega es ${normalized} ${p.baseUnit}. Se confirma la cantidad; no se atribuye una causa histórica al archivo.`});
+  }
+  base.delta=Math.round((normalized-base.expected)*1e6)/1e6;
+  if(base.delta===0){
+   const converted=unit.factor!==1;
+   return {...base,state:'matched',title:base.simulated.length?'Diferencia conciliada en el ensayo':converted?'Las cantidades son equivalentes':'El conteo coincide',accepted:count,rule:confirmed?'R3 · Confirmación de cantidad (simulada)':incident?'R2 · Merma vinculada (simulada)':converted?'R1 · Equivalencia de unidades':'R1 · Coincidencia con preparación',reason:confirmed?'La respuesta simulada confirma la cantidad ingresada y queda guardada junto a la referencia original.':incident?`${prep.quantity} registradas − ${incident.quantity} de merma vinculada en el ensayo = ${base.expected} ${p.baseUnit}.`:converted?`${count} ${unit.label} × ${unit.factor} = ${normalized} ${p.baseUnit}. Coincide con la referencia de preparación.`:`El conteo coincide con las ${prep.quantity} ${p.baseUnit} de la preparación ${prep.id}.`,action:'Registro guardado automáticamente. Esta conciliación cuantitativa es una simulación; no modifica Restaurant.pe ni autoriza condiciones de calidad.'};
+  }
+  return pending(base.delta<0?'shortage':'surplus',base.delta<0?'Hay un faltante por aclarar':'Hay un sobrante por aclarar',`El conteo equivale a ${normalized} ${p.baseUnit}, frente a ${base.expected} de referencia. No hay sustento suficiente para aceptar la diferencia. No se aplican tolerancias inventadas.`,'Producción / responsable de la entrega','Consulta preparada con las cantidades y las fuentes localizadas. El seguimiento queda en este mismo caso.');
+ }
+ const api={scenarios,parseCount,evaluate};root.PickadeliV2=api;if(typeof module!=='undefined'&&module.exports)module.exports=api;
+})(typeof window!=='undefined'?window:globalThis);
+
+(()=>{
+ 'use strict';
+ const data=window.PICKADELI_DATA,engine=window.PickadeliV2,$=id=>document.getElementById(id),key='pickadeli-recepcion-v2';
+ const clone=x=>JSON.parse(JSON.stringify(x));
+ const esc=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+ const fmt=n=>n===null||n===undefined?'—':Number(n).toLocaleString('es-PE',{maximumFractionDigits:3});
+ const norm=x=>String(x).normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/\s+/g,' ').trim().toUpperCase();
+ const stateLabels={matched:'Conciliado',shortage:'Faltante',surplus:'Sobrante',unlinked:'Falta vínculo',unitConflict:'Revisar unidad',ambiguous:'Identificar lote',late:'Registro pendiente',missing:'Sin preparación',offline:'Fuente pendiente'};
+ const style=s=>s==='matched'?'success':s==='unitConflict'?'danger':['offline','late','missing'].includes(s)?'info':'warning';
+ let activeScenario='libre',ctx={...data.defaults},current=null,busy=false,records=[],storageOK=true,toastTimer;
+ try{const saved=JSON.parse(localStorage.getItem(key)||'[]');if(Array.isArray(saved))records=saved.filter(r=>r?.version===2&&r.id&&r.result&&r.context&&Array.isArray(r.revisions)&&data.products.some(p=>p.id===r.product));}catch(_){storageOK=false;}
+ function toast(message){$('toast').textContent=message;$('toast').hidden=false;clearTimeout(toastTimer);toastTimer=setTimeout(()=>$('toast').hidden=true,3200);}
+ function persist(){try{localStorage.setItem(key,JSON.stringify(records));storageOK=true;}catch(_){storageOK=false;}$('record-count').textContent=records.length;$('storage-label').textContent=storageOK?'Guardado local. No se comparte entre archivos ni dispositivos.':'Guardado en memoria: copia el registro antes de cerrar este archivo.';renderHistory();}
+ function show(view,focus=false){if(!['conteo','historial','casos','fuentes','guia'].includes(view))view='conteo';document.querySelectorAll('.view').forEach(v=>v.hidden=v.id!==view);document.querySelectorAll('[data-view]').forEach(b=>{const yes=b.dataset.view===view;b.classList.toggle('active',yes);if(yes)b.setAttribute('aria-current','page');else b.removeAttribute('aria-current');});if(view==='historial')renderHistory();if(focus){$('main').focus({preventScroll:true});window.scrollTo({top:0,behavior:'instant'});}}
+ function go(view){location.hash=view;show(view,true);}
+ function product(){const n=norm($('product').value);return data.products.find(p=>norm(p.name)===n||p.aliases.some(a=>norm(a)===n)||p.id===n);}
+ function resetOutput(){current=null;$('result-status').className='badge neutral';$('result-status').textContent='Sin analizar';$('result').innerHTML='<div class="empty-result"><div class="empty-icon" aria-hidden="true">⇄</div><h3>Una respuesta con respaldo</h3><p>Selecciona el producto, ingresa tu conteo y pulsa el botón. Aquí verás si coincide, qué explica la diferencia o quién debe aclararla.</p><div class="promise"><span>1 · Relacionar</span><span>2 · Comprobar</span><span>3 · Registrar</span></div></div>';$('result-followup').hidden=$('source-shortcuts').hidden=$('trace-section').hidden=true;$('form-error').hidden=true;}
+ function refreshProduct(){const p=product();$('selected-product').hidden=!p;$('unit-area').hidden=!p||p.units.length===1;$('unit').innerHTML=p?p.units.map((u,i)=>`<option value="${i}">${esc(u.label)}</option>`).join(''):'';$('unit-fixed').textContent=p?p.units[0].label:'unidad del producto';if(p)$('selected-product').innerHTML=`<b>ID ${esc(p.id)}</b> · ${esc(p.baseUnit)} en la fuente<br>${p.preps.length?'Referencia del ensayo: preparación registrada, no saldo de stock.':'Producto de catálogo; preparación no localizada en la muestra.'}`;resetOutput();}
+ function prepareCase(id){if(busy)return;const s=engine.scenarios.find(x=>x.id===id)||engine.scenarios[0];activeScenario=s.id;ctx={...data.defaults,cutoff:s.cutoff||data.defaults.cutoff,offline:!!s.offline};$('cutoff-label').textContent=ctx.cutoff.slice(0,5);$('product').value=data.products.find(p=>p.id===s.product).name;$('quantity').value='';refreshProduct();$('scenario-banner').hidden=s.id==='libre';$('scenario-title').textContent=s.title;$('scenario-instruction').textContent=s.suggestion;go('conteo');}
+ function error(message,field='quantity'){$('form-error').textContent=message;$('form-error').hidden=false;$(field).setAttribute('aria-invalid','true');$(field).focus();}
+ function renderResult(){
+  const r=current.result,p=data.products.find(x=>x.id===current.product),klass=style(r.state);
+  $('result-status').className=`badge ${klass}`;$('result-status').textContent=stateLabels[r.state];
+  const delta=r.delta!==null?(r.delta>0?'+':'')+fmt(r.delta):'—';
+  const metrics=`<div class="metrics"><div class="metric"><span>Referencia de preparación</span><b>${fmt(r.declared)}</b><small>${esc(r.baseUnit)}</small></div><div class="metric"><span>Tu conteo equivalente</span><b>${fmt(r.normalized)}</b><small>${r.normalized===null?'Conversión no validada':esc(r.baseUnit)}</small></div><div class="metric"><span>Diferencia frente al sustento</span><b>${delta}</b><small>${r.delta===null?'Por determinar':esc(r.baseUnit)}</small></div></div>`;
+  const accepted=r.accepted!==null?`<div class="accepted-row"><strong class="accepted-number">${fmt(r.accepted)}</strong><div><b>${esc(r.unit)} conciliadas</b><small>Aceptación cuantitativa simulada</small></div></div>`:'';
+  $('result').innerHTML=`<div class="result-box ${klass==='success'?'':klass}"><p class="eyebrow">${r.accepted!==null?'RESULTADO DEL ENSAYO':'CANTIDAD ACEPTADA: SIN DEFINIR'}</p><h3>${esc(r.title)}</h3>${accepted}<p>${esc(r.reason)}</p></div>${metrics}<p class="result-foot"><b>Conteo guardado:</b> ${fmt(r.count)} ${esc(r.unit)}. ${esc(r.action)}</p>`;
+  let controls='';
+  if(['shortage','surplus'].includes(r.state))controls='<button class="button secondary" data-response="confirm">Simular aclaración de Producción</button>';
+  if(r.state==='unlinked')controls='<button class="button secondary" data-response="link">Simular confirmación del vínculo al lote</button>';
+  if(r.state==='ambiguous')controls=p.preps.filter(x=>x.time<=ctx.cutoff).map(x=>`<button class="button secondary" data-response="assign" data-prep="${x.id}">Simular asignación a preparación ${x.id} · ${fmt(x.quantity)} ${esc(p.baseUnit)}</button>`).join('');
+  if(r.state==='late')controls='<button class="button secondary" data-response="later">Avanzar el ensayo a las 18:00 y reintentar</button>';
+  if(r.state==='offline')controls='<button class="button secondary" data-response="restore">Restaurar fuente del ensayo y reintentar</button>';
+  const owner=r.owner?`<div class="owner"><span>Responsable propuesto</span><b>${esc(r.owner)}</b></div><div class="owner"><span>Seguimiento</span><b>Antes de cerrar la recepción</b></div><details class="prepared-request"><summary>Ver consulta preparada automáticamente</summary><p><b>${esc(current.id)} · ${esc(p.name)}</b><br>Almacén Principal CIP · 01/07/2026 · corte ${esc(ctx.cutoff.slice(0,5))}<br>Conteo físico: <b>${fmt(r.count)} ${esc(r.unit)}</b>.<br>Referencia: ${r.prep?`preparación ${esc(r.prep.id)}, lote ${esc(r.prep.lot)}, ${fmt(r.declared)} ${esc(r.baseUnit)}`:'sin preparación inequívoca disponible'}.<br>Pendiente: <b>${esc(r.title)}</b>.<br>Referencias adjuntas: ${r.evidence.length?esc(r.evidence.map(id=>data.evidence[id]?.sheet+' · '+data.evidence[id]?.range).join('; ')):'ninguna válida por ahora'}.</p><p>Solicitamos aclarar este caso en el registro de origen. La respuesta debe identificar esta recepción y aportar la cantidad o vínculo faltante.</p></details><p class="hint">Consulta y seguimiento simulados. No se envió ningún mensaje. La persona y el plazo operativo deben acordarse con Pickadeli.</p>`:'';
+  $('result-followup').hidden=!(owner||controls);
+  $('result-followup').innerHTML=owner+(controls?`<details class="case-actions"><summary>Controles del facilitador</summary><p class="hint">Representan una respuesta del origen; no son pasos del operario. Los datos añadidos se guardan como simulados.</p>${controls}</details>`:'');
+  $('source-shortcuts').hidden=false;$('source-shortcuts').innerHTML=`<span>Ensayo ${esc(current.id)} · ${current.revisions.length} versión(es)</span><button class="text-button" id="jump-evidence">Ver evidencia recuperada ↓</button>`;
+  renderTrace();
+  if(matchMedia('(max-width:700px)').matches)document.querySelector('.result-card').scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth',block:'start'});
+ }
+ function evidenceCard(id,context=false){const e=data.evidence[id];if(!e)return '';const kind=context?'Contexto':e.kind==='excluded'?'No aplicable':'Dato del archivo';const cells=Object.entries(e.cells).slice(0,3).map(([c,v])=>`${c}: ${v===null?'(vacío)':v}`).join(' · ');return `<button class="evidence-card" data-evidence="${esc(id)}"><span class="badge ${context?'neutral':'success'}">${kind}</span><h3>${esc(e.title)}</h3><p>${esc(cells)}</p><div class="file-ref">${esc(e.file)}<br>${esc(e.sheet)} · ${esc(e.range)}</div><span class="open-ref">Ver valores y ubicación ↗</span></button>`;}
+ function renderTrace(){const r=current.result;$('trace-section').hidden=false;const ids=[...new Set(r.evidence)];$('trace-count').textContent=`${ids.length} referencias del caso`;$('trace-list').innerHTML=ids.map(id=>evidenceCard(id)).join('')+r.simulated.map(e=>`<article class="evidence-card simulated"><span class="badge info">Añadido para el ensayo</span><h3>${esc(e.title)}</h3><p>${esc(e.detail)}</p><span class="file-ref">No procede de un archivo original. Registrado en ${esc(current.id)}.</span></article>`).join('');if(!ids.length&&!r.simulated.length)$('trace-list').innerHTML='<p class="hint">No hay una referencia válida disponible para aceptar este conteo. Se conserva el pendiente.</p>';
+  const excluded=[...new Set([...r.context,'MHEAD','SHEAD','REQ6','ORDER18440','DOC11','CEO2'])].filter(id=>!ids.includes(id));
+  $('excluded-list').innerHTML=excluded.map(id=>{const e=data.evidence[id];if(!e)return '';return `<div class="excluded-item"><div><b>${esc(e.title)}</b><p>${esc(e.note||'Referencia de contexto; no fija por sí sola la cantidad de esta entrega.')}</p><p>${esc(e.file)} · ${esc(e.sheet)}</p></div><button class="text-button" data-evidence="${id}">Ver referencia</button></div>`;}).join('');
+  $('assumptions-list').innerHTML=data.assumptions.map(a=>`<li>${esc(a)}</li>`).join('');
+ }
+ async function analyze(event,update=false){if(event)event.preventDefault();if(busy)return;const p=product();if(!p){error('Elige un producto del catálogo. Puedes escribir su nombre o ID.','product');return;}const ui=Number($('unit').value||0);const r=engine.evaluate(data,p.id,$('quantity').value,ui,ctx);if(r.state==='invalid'){error(r.error);return;}
+  $('form-error').hidden=true;$('product').removeAttribute('aria-invalid');$('quantity').removeAttribute('aria-invalid');busy=true;[$('submit'),$('product'),$('quantity'),$('unit')].forEach(e=>e.disabled=true);document.querySelectorAll('[data-response]').forEach(b=>b.disabled=true);
+  try{$('result-status').className='badge info';$('result-status').textContent='Buscando';$('result-followup').hidden=true;$('result').innerHTML='<div class="processing"><p class="eyebrow">BÚSQUEDA EN LA MUESTRA LOCAL</p><h3>Relacionando las referencias…</h3><div class="progress-line"><span></span></div><p>Producto y unidad → fecha y almacén → preparación, lote y sustento.</p></div>';await new Promise(resolve=>setTimeout(resolve,matchMedia('(prefers-reduced-motion: reduce)').matches?0:650));
+   const now=new Date().toISOString(),signature=JSON.stringify([activeScenario,p.id,r.count,ui,ctx]);
+   let existing=update&&current?records.find(x=>x.id===current.id):records.find(x=>x.signature===signature);
+   if(existing&&existing.signature===signature){current=clone(existing);renderResult();toast('Este mismo conteo ya está guardado. No se creó otro caso.');return;}
+   const revision={at:now,result:clone(r),context:clone(ctx)};
+   if(existing){existing.revisions.push(revision);existing.result=clone(r);existing.context=clone(ctx);existing.signature=signature;existing.updatedAt=now;current=clone(existing);}
+   else{const max=records.reduce((m,x)=>Math.max(m,Number(x.id.split('-').pop())||0),0);current={version:2,id:`ENS-${String(max+1).padStart(3,'0')}`,scenario:activeScenario,product:p.id,productName:p.name,count:r.count,unitIndex:ui,context:clone(ctx),result:clone(r),signature,createdAt:now,updatedAt:now,revisions:[revision]};records.push(clone(current));}
+   persist();renderResult();toast(r.accepted!==null?'Conteo conciliado en el ensayo y guardado.':'Conteo guardado. La aclaración queda preparada.');
+  }finally{busy=false;[$('submit'),$('product'),$('quantity'),$('unit')].forEach(e=>e.disabled=false);}
+ }
+ function renderHistory(){const filter=$('history-filter').value;const filtered=records.filter(r=>filter==='all'||(filter==='matched'?r.result.state==='matched':r.result.state!=='matched'));$('export').disabled=!records.length;$('history-list').innerHTML=filtered.length?filtered.slice().reverse().map(r=>`<article class="card history-card"><div class="history-head"><div><p>${esc(r.id)} · ${esc(engine.scenarios.find(s=>s.id===r.scenario)?.title||'Ensayo')} · ${r.revisions.length} versión(es)</p><h2>${esc(r.productName)}</h2></div><span class="badge ${style(r.result.state)}">${esc(stateLabels[r.result.state])}</span></div><div class="history-numbers"><span>Contado <b>${fmt(r.count)}</b> ${esc(r.result.unit)}</span><span>Conciliado <b>${r.result.accepted===null?'Sin definir':fmt(r.result.accepted)}</b></span></div><p class="hint">${esc(r.result.reason)}</p>${r.result.owner?`<p class="hint"><b>Responsable propuesto:</b> ${esc(r.result.owner)}</p>`:''}<details><summary>Ver cambios y referencias</summary><ol>${r.revisions.map(v=>`<li><b>${esc(stateLabels[v.result.state])}</b> · ${new Date(v.at).toLocaleTimeString('es-CO',{hour:'2-digit',minute:'2-digit',second:'2-digit'})}<br>${esc(v.result.reason)}${v.result.simulated.length?'<br><b>Incluye respuesta o asignación simulada.</b>':''}</li>`).join('')}</ol><div class="history-links">${[...new Set(r.result.evidence)].map(id=>`<button class="text-button" data-evidence="${id}">${esc(data.evidence[id]?.sheet)} · ${esc(data.evidence[id]?.range)}</button>`).join('')}</div></details></article>`).join(''):'<div class="empty-history"><h2>No hay ensayos en esta vista</h2><p>Registra un conteo o cambia el filtro. El sistema guardará el resultado automáticamente.</p></div>';}
+ function openEvidence(id){const e=data.evidence[id];if(!e)return;$('dialog-title').textContent=e.title;$('dialog-content').innerHTML=`<span class="badge ${e.kind==='excluded'?'warning':e.kind==='context'?'neutral':'success'}">${e.kind==='excluded'?'Fuente excluida como sustento':e.kind==='context'?'Contexto documental':'Extracto del archivo proporcionado'}</span><div class="source-meta"><b>${esc(e.file)}</b>${esc(e.sheet)} · ${esc(e.range)}</div><table class="cell-table"><tbody>${Object.entries(e.cells).map(([cell,v])=>`<tr><th scope="row">${esc(cell)}</th><td>${v===null?'<em>Celda vacía en el archivo</em>':esc(v)}</td></tr>`).join('')}</tbody></table><p class="dialog-note">${esc(e.note)}</p><p class="dialog-note">Extracto incorporado en el HTML para esta demo. No es una consulta al archivo ni a Restaurant.pe en tiempo real.</p>`;$('evidence-dialog').showModal();}
+ function renderStatic(){
+  $('products').innerHTML=data.products.map(p=>`<option value="${esc(p.name)}">ID ${esc(p.id)}</option>`).join('');
+  $('case-grid').innerHTML=engine.scenarios.filter(s=>s.id!=='libre').map((s,i)=>{const p=data.products.find(p=>p.id===s.product);return `<article class="card case-card"><span class="eyebrow">CASO ${String(i+1).padStart(2,'0')}</span><h2>${esc(s.title)}</h2><p>${esc(p.name)}</p><p>${esc(s.suggestion)}</p><span class="case-count">${fmt(s.count)}<small>conteo sugerido para que lo escriba el operario</small></span><button class="button secondary" data-case="${s.id}">Preparar este caso →</button></article>`;}).join('');
+  $('product-total').textContent=data.products.length;$('evidence-total').textContent=Object.keys(data.evidence).length;
+  $('files-list').innerHTML=Object.entries(data.files).map(([id,f])=>`<article class="card file-card"><span class="badge neutral">${esc(f.kind)}</span><h2>${esc(f.name)}</h2><p class="period">${esc(f.period)}</p><p>${esc(f.role)}</p><p>${esc(f.scope)}</p><div class="file-refs">${Object.values(data.evidence).filter(e=>e.source===id).map(e=>`<button class="text-button" data-evidence="${e.id}">${esc(e.sheet)} · ${esc(e.range)}</button>`).join('')}</div></article>`).join('');
+ }
+ document.addEventListener('click',e=>{const target=e.target.closest('[data-view],[data-go],[data-case],[data-evidence],[data-response]');if(!target)return;if(target.dataset.evidence){openEvidence(target.dataset.evidence);return;}if(busy){toast('Espera a que termine la búsqueda del ensayo.');return;}if(target.dataset.view||target.dataset.go){go(target.dataset.view||target.dataset.go);return;}if(target.dataset.case){prepareCase(target.dataset.case);return;}if(target.dataset.response&&current){const type=target.dataset.response;if(type==='confirm')ctx.response={product:current.product,prep:current.result.prep.id,quantity:current.result.normalized};if(type==='link')ctx.linkIncident=true;if(type==='assign')ctx.prepId=target.dataset.prep;if(type==='later')ctx.cutoff='18:00:00';if(type==='restore')ctx.offline=false;$('cutoff-label').textContent=ctx.cutoff.slice(0,5);analyze(null,true);}});
+ $('count-form').addEventListener('submit',analyze);
+ $('product').addEventListener('input',()=>{delete ctx.response;delete ctx.linkIncident;delete ctx.prepId;refreshProduct();});
+ $('quantity').addEventListener('input',()=>{delete ctx.response;resetOutput();});
+ $('unit').addEventListener('change',()=>{delete ctx.response;$('unit-fixed').textContent=product()?.units[Number($('unit').value)]?.label||'';resetOutput();});
+ $('free-mode').addEventListener('click',()=>prepareCase('libre'));
+ $('source-shortcuts').addEventListener('click',e=>{if(e.target.closest('#jump-evidence'))$('trace-section').scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth',block:'start'});});
+ $('history-filter').addEventListener('change',renderHistory);
+ $('close-evidence').addEventListener('click',()=>$('evidence-dialog').close());$('close-export').addEventListener('click',()=>$('export-dialog').close());
+ $('export').addEventListener('click',()=>{const evidenceIds=[...new Set(records.flatMap(r=>r.revisions.flatMap(v=>[...v.result.evidence,...v.result.context])))];$('export-content').value=JSON.stringify({demo:true,version:2,notice:'Conteos de ensayo, respuestas simuladas y extractos históricos. No son decisiones operativas.',records,evidence:Object.fromEntries(evidenceIds.filter(id=>data.evidence[id]).map(id=>[id,data.evidence[id]]))},null,2);$('export-dialog').showModal();});
+ $('copy-export').addEventListener('click',async()=>{try{await navigator.clipboard.writeText($('export-content').value);toast('Registro copiado.');}catch(_){$('export-content').focus();$('export-content').select();toast('Contenido seleccionado. Usa Ctrl+C para copiar.');}});
+ $('download-export').addEventListener('click',()=>{const url=URL.createObjectURL(new Blob([$('export-content').value],{type:'application/json;charset=utf-8'}));const a=document.createElement('a');a.href=url;a.download='pickadeli-ensayos-v2.json';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),60000);});
+ $('reset').addEventListener('click',()=>{if(busy)return;if(!confirm('¿Borrar todos los ensayos de esta demo? Los archivos de origen no se modifican.'))return;records=[];persist();prepareCase('libre');toast('Ensayos borrados.');});
+ window.addEventListener('hashchange',()=>show(location.hash.slice(1)));
+ renderStatic();persist();$('product').value=data.products.find(p=>p.id==='2980').name;refreshProduct();show(location.hash.slice(1));
+})();
+
+</script>
+</body></html>
